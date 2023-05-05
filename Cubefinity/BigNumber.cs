@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cubefinity
 {
@@ -56,7 +52,10 @@ namespace Cubefinity
                         {
                             return value.ToString("0");
                         }
-                        else return value.ToString("0.000e0"); // Display the number in scientific notation
+                        else 
+                        {
+                            return value.ToString("0.000e0");
+                        }
                     }
                 }
             }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 using System.Diagnostics;
 
@@ -180,18 +178,32 @@ namespace Cubefinity
             PrismUpgrade11Contri = MainGame._prismUpgrade11Contri;
             PreviousForgerMultiplier = MainGame._previousForgerMultiplier;
 
-            Version = 1; 
+            Version = 1;  //CHANGE VERSION TO TO 2 ONCE UPDATE COMPLETE
         }
 
         public void Migrate()
         {
-            if (Version < 2)
+            if (Version < 2) //CHANGE VERSION TO TO 3 ONCE UPDATE COMPLETE
             {
                 if (Upgrades.Count < MainGame._upgrades.Count)
                 {
                     for (int i = Upgrades.Count; i < MainGame._upgrades.Count; i++)
                     {
                         Upgrades.Add(MainGame._upgrades[i]);
+                    }
+                }
+                if (FluxUpgrades.Count < MainGame._upgrades.Count)
+                {
+                    for (int i = FluxUpgrades.Count; i < MainGame._fluxUpgrades.Count; i++)
+                    {
+                        FluxUpgrades.Add(MainGame._fluxUpgrades[i]);
+                    }
+                }
+                if (FractalUpgrades.Count < MainGame._fractalUpgrades.Count)
+                {
+                    for (int i = FractalUpgrades.Count; i < MainGame._fractalUpgrades.Count; i++)
+                    {
+                        FractalUpgrades.Add(MainGame._fractalUpgrades[i]);
                     }
                 }
                 if (PrismUpgrades.Count < MainGame._prismUpgrades.Count)
@@ -216,7 +228,7 @@ namespace Cubefinity
                     }
                 }
                 UpdateOldValues(); // Call the UpdateOldValues method
-                Version = 2;
+                Version = 2; //CHANGE VERSION TO TO 3 ONCE UPDATE COMPLETE
             }
         }
 
@@ -235,6 +247,14 @@ namespace Cubefinity
             {
                 PrismUpgrades[i] = MergePrismUpgradeData(PrismUpgrades[i], MainGame._prismUpgrades[i]);
             }
+            for (int i = 0; i < FractalUpgrades.Count; i++)
+            {
+                FractalUpgrades[i] = MergeFractalUpgradeData(FractalUpgrades[i], MainGame._fractalUpgrades[i]);
+            }
+            for (int i = 0; i < FluxUpgrades.Count; i++)
+            {
+                FluxUpgrades[i] = MergeFluxUpgradeData(FluxUpgrades[i], MainGame._fluxUpgrades[i]);
+            }
         }
 
         private Achievement MergeAchievementData(Achievement oldData, Achievement newData)
@@ -247,7 +267,17 @@ namespace Cubefinity
             oldData.Name = newData.Name;
             return oldData;
         }
-         private Upgrade MergePrismUpgradeData(Upgrade oldData, Upgrade newData)
+        private Upgrade MergePrismUpgradeData(Upgrade oldData, Upgrade newData)
+        {
+            oldData.Name = newData.Name;
+            return oldData;
+        }
+        private Upgrade MergeFractalUpgradeData(Upgrade oldData, Upgrade newData)
+        {
+            oldData.Name = newData.Name;
+            return oldData;
+        }
+        private Upgrade MergeFluxUpgradeData(Upgrade oldData, Upgrade newData)
         {
             oldData.Name = newData.Name;
             return oldData;

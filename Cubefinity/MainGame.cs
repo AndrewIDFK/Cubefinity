@@ -1,19 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
 using System.Timers;
-using System.Diagnostics;
-using System.Windows;
-using static System.Net.Mime.MediaTypeNames;
 
 
 
@@ -44,27 +36,27 @@ namespace Cubefinity
         CubeGenerator cubeProducer;
         CubeGenerator cubeArchitect;
         CubeGenerator cubeEngineer;
-        UIButton cubeProducerButton;
-        UIButton cubeArchitectButton;
-        UIButton cubeEngineerButton;
+        UIButtonSmallFont cubeProducerButton;
+        UIButtonSmallFont cubeArchitectButton;
+        UIButtonSmallFont cubeEngineerButton;
 
         CubeGenerator cubeVisionary;
-        UIButton cubeVisionaryButton;
+        UIButtonSmallFont cubeVisionaryButton;
         CubeGenerator cubeOmni;
-        UIButton cubeOmniButton;
+        UIButtonSmallFont cubeOmniButton;
         
 
         public static FluxStuff primer;
-        UIButton primerButton;
+        UIButtonSmallFont primerButton;
         public static FluxStuff overcharger;
-        UIButton overchargerButton;
+        UIButtonSmallFont overchargerButton;
 
         FractalGenerator fractalWeaver;
-        UIButton fractalWeaverButton;
+        UIButtonSmallFont fractalWeaverButton;
         FractalGenerator fractalForger;
-        UIButton fractalForgerButton;
+        UIButtonSmallFont fractalForgerButton;
         FractalGenerator fractalNexus;
-        UIButton fractalNexusButton;
+        UIButtonSmallFont fractalNexusButton;
 
         #endregion
 
@@ -117,6 +109,7 @@ namespace Cubefinity
         UIUpgradeButton visBaseMultUpButton;
         Upgrade threeMultiUpFromVis;
         UIUpgradeButton threeMultiUpFromVisButton;
+    
         Upgrade prodFromPrimer;
         UIUpgradeButton prodFromPrimerButton;
         Upgrade archFromPrimer;
@@ -301,7 +294,9 @@ namespace Cubefinity
         Achievement cubeAmountAch15;
         UIAchievementButton cubeAmountAch15Button;
         Achievement cubeAmountAch16;
-        UIAchievementButton cubeAmountAch16Button;
+        UIAchievementButton cubeAmountAch16Button; 
+        Achievement cubeAmountAch17;
+        UIAchievementButton cubeAmountAch17Button;
 
         #endregion
 
@@ -347,10 +342,12 @@ namespace Cubefinity
         UILabel fluxLabel;
         UILabel prismLabel;
         UILabel fractalLabel;
+        UILabel sigilCubeLabel;
         UIButton generatorsButton;
         UIButton upgradesButton;
         UIButton achievementsButton;
         UIButton fractGenButton;
+        UIButton sigilsButton;
 
 
         UIButton cubeBuy1Button;
@@ -390,6 +387,7 @@ namespace Cubefinity
         bool isUpgradeSectionOpen = false;
         bool isAchievementSectionOpen = false;
         bool isFractalGeneratorsSectionOpen = false;
+        bool isSigilsSectionOpen = false;
         private AchievementPopup _achievementPopup;
         public static Queue<AchievementPopup> AchievementQueue = new Queue<AchievementPopup>();
 
@@ -487,11 +485,12 @@ namespace Cubefinity
             MainGame.AutoFluxUpgradeIcon = Content.Load<Texture2D>("UI/UpgradeIcons/AutoFluxUpgradeIcon");
             #endregion
 
-            titleLabel = new UILabel(new Vector2(80, 50), "CUBEfinity", currencyFont, 1);
-            cubeLabel = new UILabel(new Vector2(1645, 50 ), "Cubes", currencyFont, 1);
-            fluxLabel = new UILabel(new Vector2(1645, 50 + 50), "Flux", currencyFont, 1);
-            prismLabel = new UILabel(new Vector2(1645, 50 + 100), "Prisms", currencyFont, 1);
-            fractalLabel = new UILabel(new Vector2(1645, 50 + 150), "Fractals", currencyFont, 1);
+            titleLabel = new UILabel(new Vector2(70, 50), "CUBEFINITY", font, 1.1f);
+            cubeLabel = new UILabel(new Vector2(1640, 44), "Cubes", currencyFont, 1.05f);
+            fluxLabel = new UILabel(new Vector2(1640, 44 + 50), "Flux", currencyFont, 1.05f);
+            prismLabel = new UILabel(new Vector2(1640, 44 + 100), "Prisms", currencyFont, 1.05f);
+            fractalLabel = new UILabel(new Vector2(1640, 44 + 150), "Fractals", currencyFont, 1.05f);
+            sigilCubeLabel = new UILabel(new Vector2(1920 / 2, 44 + 200), "Sigil Cubes", currencyFont, 1.05f);
 
             #region Left Menu Buttons
 
@@ -499,10 +498,12 @@ namespace Cubefinity
             upgradesButton = new UIButton(ButtonTexture, new Rectangle(60, 170, 160, 50), new Vector2(60, 500), "Upgrades", font, new Color(153, 72, 21), Color.White);
             achievementsButton = new UIButton(ButtonTexture, new Rectangle(30, 220, 190, 50), new Vector2(60, 550), "Achievements", font, new Color(184, 138, 13), Color.White);
             fractGenButton = new UIButton(ButtonTexture, new Rectangle(30, 220, 265, 50), new Vector2(-10, 400), "Fractal Gens", font, new Color(184, 13, 59), Color.White);
+            sigilsButton = new UIButton(ButtonTexture, new Rectangle(30, 220, 295, 50), new Vector2(-10, 400), "Sigils", font, new Color(147, 9, 22), Color.White);
             generatorsButton.Click += GeneratorsButton_Clicked;
             upgradesButton.Click += UpgradesButton_Clicked;
             achievementsButton.Click += AchievementsButton_Clicked;
             fractGenButton.Click += FractGenButton_Clicked;
+            sigilsButton.Click += SigilsButton_Clicked;
             #endregion
 
             _prodAutoButton = new UIButton(ButtonTexture, new Rectangle(0, 220, 140, 24), new Vector2(cubeProducerPos.X + 60, cubeProducerPos.Y - 20), "AUTO", font, Color.DarkRed, Color.White);
@@ -529,19 +530,19 @@ namespace Cubefinity
 
             #region Cube Generator Area
 
-            cubeProducerButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), cubeProducerPos, "", font, new Color(36, 36, 36), Color.White);
+            cubeProducerButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), cubeProducerPos, "", font, new Color(36, 36, 36), Color.White);
             cubeProducerButton.Click += CubeProducerButton_Clicked;
 
-            cubeArchitectButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 390, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
+            cubeArchitectButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 390, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
             cubeArchitectButton.Click += CubeArchitectButton_Clicked;
 
-            cubeEngineerButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 780, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
+            cubeEngineerButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 780, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
             cubeEngineerButton.Click += CubeEngineerButton_Clicked;
 
-            cubeVisionaryButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 195, cubeProducerPos.Y + 300), "", font, new Color(36, 36, 36), Color.White);
+            cubeVisionaryButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 195, cubeProducerPos.Y + 300), "", font, new Color(36, 36, 36), Color.White);
             cubeVisionaryButton.Click += CubeVisionaryButton_Clicked;
 
-            cubeOmniButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 585, cubeProducerPos.Y + 300), "", font, new Color(36, 36, 36), Color.White);
+            cubeOmniButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 585, cubeProducerPos.Y + 300), "", font, new Color(36, 36, 36), Color.White);
             cubeOmniButton.Click += CubeOmniButton_Clicked;
 
             cubeBuy1Button = new UIButton(EmptyTexture, new Rectangle(0, 220, 48, 32), cubeBuyAmountPos, "1", font, new Color(42, 42, 42), Color.White);
@@ -566,19 +567,19 @@ namespace Cubefinity
 
             #region Fractal Generator Area //IT ALSO USES BUY BUTTONS FROM CUBE GEN AREA
 
-            fractalWeaverButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), cubeProducerPos, "", font, new Color(36, 36, 36), Color.White);
+            fractalWeaverButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), cubeProducerPos, "", font, new Color(36, 36, 36), Color.White);
             fractalWeaverButton.Click += FractalWeaverButton_Clicked;
 
-            fractalForgerButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 390, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
+            fractalForgerButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 390, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
             fractalForgerButton.Click += FractalForgerButton_Clicked;
 
-            fractalNexusButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 780, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
+            fractalNexusButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 780, cubeProducerPos.Y), "", font, new Color(36, 36, 36), Color.White);
             fractalNexusButton.Click += FractalNexusButton_Clicked;
             #endregion
 
-            primerButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X, cubeProducerPos.Y + 600), "", font, new Color(36, 36, 36), Color.White);
+            primerButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X, cubeProducerPos.Y + 600), "", font, new Color(36, 36, 36), Color.White);
             primerButton.Click += PrimerButton_Clicked;
-            overchargerButton = new UIButton(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 780, cubeProducerPos.Y + 600), "", font, new Color(36, 36, 36), Color.White);
+            overchargerButton = new UIButtonSmallFont(EmptyTexture, new Rectangle(0, 220, 260, 32), new Vector2(cubeProducerPos.X + 780, cubeProducerPos.Y + 600), "", font, new Color(36, 36, 36), Color.White);
             overchargerButton.Click += OverchargerButton_Clicked;
 
             fluxuateButton = new UIButton(ButtonTexture, new Rectangle(0, 100, 220, 50), fluxuatePos, "", font, new Color(36, 36, 36), Color.White);
@@ -714,6 +715,7 @@ namespace Cubefinity
                 cubeAmountAch14Button,
                 cubeAmountAch15Button,
                 cubeAmountAch16Button,
+                cubeAmountAch17Button,
             };
         }
 
@@ -1000,20 +1002,23 @@ namespace Cubefinity
             ritualAmountAch6 = new Achievement("Rituals Are Red All Over", "Conduct 100 Rituals in total!", "", "88fcc2", this); // 21
             _achievements.Add(ritualAmountAch6);
 
-            cubeAmountAch11 = new Achievement("So Many Cubes...", "Have 1e50 Cubes in your Cube Wallet!", "", "88fcc2", this); // 22
+            cubeAmountAch11 = new Achievement("So Many Cubes...", "Have 1e50 Cubes in your Cube Wallet!", "", "88fcc2", this); // 22    MAYBE MAKE THIS AND OTHER SIMILAR ONES PERMANENTLY UNLOCK CUBE UPGRADES :SHRUG:
             _achievements.Add(cubeAmountAch11);
             cubeAmountAch12 = new Achievement("And They're All Yours!", "Have 1e75 Cubes in your Cube Wallet!", "", "88fcc2", this); // 23
             _achievements.Add(cubeAmountAch12);
 
-            cubeAmountAch13 = new Achievement("Just Googol It", "Have 1e100 Cubes in your Cube Wallet!", "", "88fcc2", this); // 24
+            cubeAmountAch13 = new Achievement("Just Googol It", "Have 1e100 Cubes in your Cube Wallet!\n", "\n[c:c288fc]Unlocks a new Cube Upgrade!", "88fcc2", this); // 24
             _achievements.Add(cubeAmountAch13);
             cubeAmountAch14 = new Achievement("Not Just A River In Ireland", "Have 1e120 Cubes in your Cube Wallet!", "", "88fcc2", this); // 25
             _achievements.Add(cubeAmountAch14);
             cubeAmountAch15 = new Achievement("A Nuwa High Score!", "Have 1e150 Cubes in your Cube Wallet!", "", "88fcc2", this); // 26
             _achievements.Add(cubeAmountAch15);
             cubeAmountAch16 = new Achievement("Walk The Long Planck, Cube!", "Have 4.65e185 Cubes in your Cube Wallet!", "", "88fcc2", this); // 27
-            _achievements.Add(cubeAmountAch16);
+            _achievements.Add(cubeAmountAch16);            
+            cubeAmountAch17 = new Achievement("Aw, There's A Cap?", "Have 1e200 Cubes in your Cube Wallet!\n", "\n[c:c288fc]Unlocks Sigil Cubes and Sigils", "88fcc2", this); // 28
+            _achievements.Add(cubeAmountAch17);
 
+            
             InitializeAchievementCriteria();
             #endregion
 
@@ -1070,6 +1075,7 @@ namespace Cubefinity
                 { "Not Just A River In Ireland", () => resourceManager.GetCubes() >= 1e120 },
                 { "A Nuwa High Score!", () => resourceManager.GetCubes() >= 1e150 },
                 { "Walk The Long Planck, Cube!", () => resourceManager.GetCubes() >= 4.65e185 },
+                { "Aw, There's A Cap?", () => resourceManager.GetCubes() >= 1e200 },
 
             };
         }
@@ -1083,6 +1089,7 @@ namespace Cubefinity
             _gameState.Upgrades = _upgrades;
             _gameState.FluxUpgrades = _fluxUpgrades;
             _gameState.PrismUpgrades = _prismUpgrades;
+            _gameState.FractalUpgrades = _fractalUpgrades;
             _gameState.Achievements = _achievements;
             _gameState.Cubes = resourceManager.GetCubes();
             _gameState.Fractals = resourceManager.GetFractals();
@@ -1258,10 +1265,11 @@ namespace Cubefinity
             ritualAmountAch6 = _achievements[21];
             cubeAmountAch11 = _achievements[22];
             cubeAmountAch12 = _achievements[23];
-            //cubeAmountAch13 = _achievements[24];
-            //cubeAmountAch14 = _achievements[25];
-            //cubeAmountAch15 = _achievements[26];
-            //cubeAmountAch16 = _achievements[27];
+            cubeAmountAch13 = _achievements[24];
+            cubeAmountAch14 = _achievements[25];
+            cubeAmountAch15 = _achievements[26];
+            cubeAmountAch16 = _achievements[27];
+            cubeAmountAch17 = _achievements[28];
 
 
             _prevProdCount = savedData.PrevProdCount;
@@ -1623,6 +1631,7 @@ namespace Cubefinity
             cubeAmountAch14Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 13, achievement1Pos.Y), EmptyTexture, "", new Color(36, 36, 36), true);
             cubeAmountAch15Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 14, achievement1Pos.Y), EmptyTexture, "", new Color(36, 36, 36), false);
             cubeAmountAch16Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 15, achievement1Pos.Y), EmptyTexture, "", new Color(36, 36, 36), true);
+            cubeAmountAch17Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 16, achievement1Pos.Y), EmptyTexture, "", new Color(36, 36, 36), false);
 
         }
         private void ProdAutoButton_Clicked(object sender, EventArgs e)
@@ -1728,6 +1737,7 @@ namespace Cubefinity
                 isUpgradeSectionOpen = false;
                 isAchievementSectionOpen = false;
                 isFractalGeneratorsSectionOpen = false;
+                isSigilsSectionOpen = false;
             }
         }
         private void UpgradesButton_Clicked(object sender, EventArgs e)
@@ -1740,6 +1750,7 @@ namespace Cubefinity
                 isUpgradeSectionOpen = true;
                 isAchievementSectionOpen = false;
                 isFractalGeneratorsSectionOpen = false;
+                isSigilsSectionOpen = false;
             }
         }
         private void AchievementsButton_Clicked(object sender, EventArgs e)
@@ -1752,6 +1763,7 @@ namespace Cubefinity
                 isUpgradeSectionOpen = false;
                 isAchievementSectionOpen = true;
                 isFractalGeneratorsSectionOpen = false;
+                isSigilsSectionOpen = false;
             }
         } 
         private void FractGenButton_Clicked(object sender, EventArgs e)
@@ -1764,6 +1776,20 @@ namespace Cubefinity
                 isUpgradeSectionOpen = false;
                 isAchievementSectionOpen = false;
                 isFractalGeneratorsSectionOpen = true;
+                isSigilsSectionOpen = false;
+            }
+        }
+        private void SigilsButton_Clicked(object sender, EventArgs e)
+        {
+            // Perform the action for the achievements button
+            if (_confirmationPopup == null && cubeAmountAch17.IsUnlocked)
+            {
+                colorLineColor = new Color(147, 9, 22);
+                isCubeGeneratorsSectionOpen = false;
+                isUpgradeSectionOpen = false;
+                isAchievementSectionOpen = false;
+                isFractalGeneratorsSectionOpen = false;
+                isSigilsSectionOpen = true;
             }
         }
         private void ProdUpgrade1Button_Clicked(object sender, EventArgs e)
@@ -3364,6 +3390,23 @@ namespace Cubefinity
                 
             }
 
+            if (cubeAmountAch17.IsUnlocked)
+            {
+                sigilsButton.Update(gameTime);
+                sigilsButton.ButtonTexture = ButtonTexture;
+                sigilsButton.Text = "Sigils";
+
+                expoNumeration = new BigNumber(resourceManager.GetFractals());
+                sigilCubeLabel.Text = $"SIGIL CUBES: {expoNumeration.ToString()}";
+                sigilCubeLabel.TextColor = new Color(191, 105, 105);
+            }
+            else
+            {
+                sigilsButton.ButtonTexture = EmptyTexture;
+                sigilsButton.Text = "";
+                
+            }
+
 
 
             expoNumeration = new BigNumber(resourceManager.GetCubes());
@@ -3569,6 +3612,7 @@ namespace Cubefinity
             UpdateAchievementButton(cubeAmountAch14Button, cubeAmountAch14, AchievementTexture, Content.Load<Texture2D>("UI/CubeTexture"));
             UpdateAchievementButton(cubeAmountAch15Button, cubeAmountAch15, AchievementTexture, Content.Load<Texture2D>("UI/CubeTexture"));
             UpdateAchievementButton(cubeAmountAch16Button, cubeAmountAch16, AchievementTexture, Content.Load<Texture2D>("UI/CubeTexture"));
+            UpdateAchievementButton(cubeAmountAch17Button, cubeAmountAch17, AchievementTexture, Content.Load<Texture2D>("UI/CubeTexture"));
 
         }
         private void UpdateAchievementButton(UIAchievementButton btn, Achievement ach, Texture2D tex, Texture2D icn)
@@ -3736,6 +3780,7 @@ namespace Cubefinity
                         ritualAmountAch1Button, ritualAmountAch2Button, ritualAmountAch3Button, ritualAmountAch4Button,
                         ritualAmountAch5Button, ritualAmountAch6Button, cubeAmountAch11Button, cubeAmountAch12Button,
                         cubeAmountAch13Button, cubeAmountAch14Button, cubeAmountAch15Button, cubeAmountAch16Button,
+                        cubeAmountAch17Button,
                     }
                     .FirstOrDefault(btn => btn._isHovering)?.HoverText ?? "";
                 }
@@ -5023,7 +5068,7 @@ namespace Cubefinity
                 _ritualAutoButton.Draw(gameTime, spriteBatch);
             }
 
-            if(!isUpgradeSectionOpen && !isFractalGeneratorsSectionOpen && !isCubeGeneratorsSectionOpen && !isAchievementSectionOpen)
+            if(!isUpgradeSectionOpen && !isFractalGeneratorsSectionOpen && !isCubeGeneratorsSectionOpen && !isAchievementSectionOpen && !isSigilsSectionOpen)
             {
                 spriteBatch.Draw(Content.Load<Texture2D>("UI/CubefinityLogo"), new Vector2(1920 / 2 + 250 - 300 - Content.Load<Texture2D>("UI/CubefinityLogo").Width / 2, 1080 / 2 - Content.Load<Texture2D>("UI/CubefinityLogo").Height / 2), Color.White);
             }
@@ -5290,11 +5335,13 @@ namespace Cubefinity
             // Draw UI elements
             foreach (var component in _gameComponents) component.Draw(gameTime, spriteBatch);
             if (ritualAmountAch1.IsUnlocked) fractGenButton.Draw(gameTime, spriteBatch);
+            if (cubeAmountAch17.IsUnlocked) sigilsButton.Draw(gameTime, spriteBatch);
             titleLabel.Draw(spriteBatch);
             cubeLabel.Draw(spriteBatch);
             if(cubeAmountFluxUnlock.IsUnlocked) fluxLabel.Draw(spriteBatch);
             if(cubeAmountAch9.IsUnlocked) prismLabel.Draw(spriteBatch);
             if(ritualAmountAch1.IsUnlocked) fractalLabel.Draw(spriteBatch);
+            if(cubeAmountAch17.IsUnlocked) sigilCubeLabel.Draw(spriteBatch);
             DrawColorLines(spriteBatch);
             DrawHoverText(spriteBatch);
             DrawFluxHoverText(spriteBatch);

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics">
   <Asset Type="Graphics:FontDescription">
-    <FontName>SquareFont</FontName>
-    <Size>16</Size>
-    <Spacing>1.5</Spacing>
+    <FontName>Chakra Petch</FontName>
+    <Size>17</Size>
+    <Spacing>0</Spacing>
     <UseKerning>true</UseKerning>
     <Style>Regular</Style>
     <DefaultCharacter>*</DefaultCharacter>
