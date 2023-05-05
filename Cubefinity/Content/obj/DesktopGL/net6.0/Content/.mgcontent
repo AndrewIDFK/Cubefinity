@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/ArchitectTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/ButtonTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/BuyAmountButtonTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/BuyButtonTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/CubefinityLogo.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/CubeTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/CurrencyFont.spritefont</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/EmptyTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/EngineerTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/FluxTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/ForgerTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/FractalTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/InfoFont.spritefont</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/MenuFont.spritefont</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/NexusTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/OmniTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/OverchargerTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/PrimerTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/PrismTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/ProducerTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/RectangleTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/SigilCubeTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/SquareDiamondTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/TriangleTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/AutoCubeUpgradeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/AutoFluxUpgradeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/AutoIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/BaseCubeUpgradeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/CubeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/CubeUpgradeRecycleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/CubeUpgradeSaleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/CubeUpgradeXIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/FluxIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/FractalIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/FractalUpgradeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/FractalUpgradeRecycleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/FractalUpgradeSaleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/MultiCubeSaleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/MultiCubeUpgradeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/PrimerUpgradeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/PrimerUpgradeRecycleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/PrimerUpgradeSaleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/PrismIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/PrismUpgradeIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/PrismUpgradeRecycleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/PrismUpgradeSaleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/UpgradeIcons/TwoCubeSaleIcon.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/VisionaryTexture.png</File>
+    <File>C:/Users/andre/source/repos/Cubefinity/Cubefinity/Content/UI/WeaverTexture.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

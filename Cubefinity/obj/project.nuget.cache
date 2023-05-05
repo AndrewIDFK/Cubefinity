@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "116TTCY8/96owlDhkfoA23pe6eYhrkFmIDSpvAPh242EK+q6+OwZnwaF35MEls9AE7wXbkP4I/XEY55eAreqxA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\andre\\source\\repos\\Cubefinity\\Cubefinity\\Cubefinity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andre\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\andre\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": []
+}
