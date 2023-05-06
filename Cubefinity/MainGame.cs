@@ -217,7 +217,7 @@ namespace Cubefinity
         Upgrade autoOvercharger;
         UIUpgradeButton autoOverchargerButton;
 
-         // from ritualAchievement5
+        // from ritualAchievement5
         Upgrade prismUpgrade10;
         UIUpgradeButton prismUpgrade10Button;
         Upgrade prismUpgrade11;
@@ -229,7 +229,9 @@ namespace Cubefinity
         Upgrade prismUpgrade14;
         UIUpgradeButton prismUpgrade14Button;
         
-
+        // from cubeAmountAch13
+        Upgrade trueFinalCubeUpgrade;
+        UIUpgradeButton trueFinalCubeUpgradeButton;
 
         #endregion
 
@@ -716,6 +718,7 @@ namespace Cubefinity
                 cubeAmountAch15Button,
                 cubeAmountAch16Button,
                 cubeAmountAch17Button,
+                trueFinalCubeUpgradeButton,
             };
         }
 
@@ -763,18 +766,18 @@ namespace Cubefinity
             _cubeGenerators.Add(cubeArchitect);
             cubeEngineer = new CubeGenerator("CubeEngineer", 100, 0.06, 25, 1); // 100, 0.08, 10
             _cubeGenerators.Add(cubeEngineer);
-            cubeVisionary = new CubeGenerator("CubeVisionary", 12500, 0.06, 2500, 1); // 10000, 0.08, 1000
+            cubeVisionary = new CubeGenerator("CubeVisionary", 12500, 0.06, 2000, 1); // 10000, 0.08, 1000
             _cubeGenerators.Add(cubeVisionary);
             cubeOmni = new CubeGenerator("CubeOmnificents", 1e7, 0.06, 2500000, 1); // 1e7, 0.08, 1e6
             _cubeGenerators.Add(cubeOmni);
 
             primer = new FluxStuff("Primer", 1, 0.03, 0.25); // 1, 0.03, 0.25
             _fluxStuff.Add(primer);
-            overcharger = new FluxStuff("Overcharger", 2.5, 0.03, 0.1); // 5, 0.03, 0.1
+            overcharger = new FluxStuff("Overcharger", 2.5, 0.03, 0.15); // 5, 0.03, 0.15
             _fluxStuff.Add(overcharger);
 
 
-             fractalWeaver = new FractalGenerator("FractalWeaver", 0.5, 0.08, 0.001, 1); 
+            fractalWeaver = new FractalGenerator("FractalWeaver", 0.5, 0.08, 0.001, 1); 
             _fractalGenerators.Add(fractalWeaver);
             fractalForger = new FractalGenerator("FractalForger", 10, 0.08, 0.05, 1);
             _fractalGenerators.Add(fractalForger);
@@ -788,23 +791,23 @@ namespace Cubefinity
             _upgrades.Add(archUpgrade1);
             engiUpgrade1 = new Upgrade("Increases base multiplier for Designers by +0.1x", 500); // 2
             _upgrades.Add(engiUpgrade1);
-            prodMultiFromArch = new Upgrade("Each Architect owned increases Producers multiplier by +0.01x", 50); // 3
+            prodMultiFromArch = new Upgrade("Each Architect owned increases Producers multiplier by +0.05x", 50); // 3   /// WAS 0.01
             _upgrades.Add(prodMultiFromArch);
-            prodMultiFromArchMulti = new Upgrade("Architects multiplier gets added to Producers multiplier", 250); // 4
+            prodMultiFromArchMulti = new Upgrade("Architects multiplier is also added to Producers multiplier", 250); // 4
             _upgrades.Add(prodMultiFromArchMulti);
             allCubeMultiUp = new Upgrade("Increases Producers, Architects and Designers multipliers by +0.25x", 1000); // 5
             _upgrades.Add(allCubeMultiUp);
-            archMultiFromEngi = new Upgrade("Each Designer owned increases the Architect multiplier by +0.05x", 5000); // 6
+            archMultiFromEngi = new Upgrade("Each Designer owned increases the Architect multiplier by +0.1x", 5000); // 6   // WAS 0.05
             _upgrades.Add(archMultiFromEngi);
-            cube10GenToMulti = new Upgrade("For every 10-set of Producers, Architects and Designers, \nboost Producers, Architects and Designers multipliers by +0.08x", 10000); // 7
+            cube10GenToMulti = new Upgrade("For every 5-set of Producers, Architects and Designers, \nboost Producers, Architects and Designers multipliers by +0.05x", 10000); // 7   //WAS 10-SET 0.08
             _upgrades.Add(cube10GenToMulti);
-            prod5Multi = new Upgrade("Increases Producers base multiplier by +10x", 2500); // 8
+            prod5Multi = new Upgrade("Increases Producers base multiplier by +15x", 2500); // 8  // WAS 10
             _upgrades.Add(prod5Multi);
             arch5Multi = new Upgrade("Increases Architects base multiplier by +7.5x", 7500); // 9
             _upgrades.Add(arch5Multi);
             engi5Multi = new Upgrade("Increases Designers base multiplier by +5x", 15000); // 10
             _upgrades.Add(engi5Multi);
-            archMultiFromEngiMulti = new Upgrade("Designers multiplier gets added to Architects multiplier", 25000); // 11
+            archMultiFromEngiMulti = new Upgrade("Designers multiplier is also added to Architects multiplier", 25000); // 11
             _upgrades.Add(archMultiFromEngiMulti);
             prodSaleUpgrade = new Upgrade("Decreases the cost of Producers by 25%", 20000); // 12
             _upgrades.Add(prodSaleUpgrade);
@@ -812,17 +815,17 @@ namespace Cubefinity
             _upgrades.Add(archSaleUpgrade);
             engiSaleUpgrade = new Upgrade("Decreases the cost of Designers by 75%", 80000); // 14
             _upgrades.Add(engiSaleUpgrade);
-            engiMultiFromProd = new Upgrade("Each Producer owned increases Designers multiplier by +0.05x", 250000); // 15
+            engiMultiFromProd = new Upgrade("Each Producer owned increases Designers multiplier by +0.15x", 250000); // 15   // WAS 0.05
             _upgrades.Add(engiMultiFromProd);
             cube10GenToSale = new Upgrade("For every 25-set of Producers, Architects and Designers, \nreduce the price of Producers, Architects and Designers by 3% \n(diminishing returns)", 750000); // 16
             _upgrades.Add(cube10GenToSale);
-            cube50ProdToProdMult = new Upgrade("Every 50 Producers increases Producers base multiplier by +2.5x", 500000); // 17
+            cube50ProdToProdMult = new Upgrade("Every 50 Producers increases Producers base multiplier by +5x", 500000); // 17    // WAS 2.5
             _upgrades.Add(cube50ProdToProdMult);
-            visMultFromProd = new Upgrade("Each Producer owned increases Visionaries multiplier by +0.1x", 350000); // 18
+            visMultFromProd = new Upgrade("Each Producer owned increases Visionaries multiplier by +0.25x", 350000); // 18    // WAS 0.1
             _upgrades.Add(visMultFromProd);
-            visMultFromArch = new Upgrade("Each Architect owned increases Visionaries multiplier by +0.5x", 1e6); // 19
+            visMultFromArch = new Upgrade("Each Architect owned increases Visionaries multiplier by +0.75x", 1e6); // 19    // WAS 0.5
             _upgrades.Add(visMultFromArch);
-            visMultFromEngi = new Upgrade("Each Designer owned increases Visionaries multiplier by +1x", 1e7); // 20
+            visMultFromEngi = new Upgrade("Each Designer owned increases Visionaries multiplier by +1.25x", 1e7); // 20     // WAS 1
             _upgrades.Add(visMultFromEngi);
             visBaseMultUp = new Upgrade("Increases Visionaries base multiplier by +25x", 1e8); // 21
             _upgrades.Add(visBaseMultUp);
@@ -844,10 +847,12 @@ namespace Cubefinity
             allGen100ToOmniMult = new Upgrade("Visionaries multiplier gets added to Omnificents multiplier", 1e17); // 29
             _upgrades.Add(allGen100ToOmniMult);
 
-            cubeFinalUpgrade1 = new Upgrade("Increases the base multiplier of all Cube generators by +100x", 1e25); // 30
+            cubeFinalUpgrade1 = new Upgrade("Increases the base multiplier of all Cube generators by +100x", 1e30); // 30
             _upgrades.Add(cubeFinalUpgrade1);
-            cubeFinalUpgrade2 = new Upgrade("Decreases the cost of all Cube generators by 95%", 1e25); // 31
+            cubeFinalUpgrade2 = new Upgrade("Decreases the cost of all Cube generators by 95%", 1e35); // 31
             _upgrades.Add(cubeFinalUpgrade2);
+            trueFinalCubeUpgrade = new Upgrade("For every Producer owned, increase the base multiplier of all Cube generators by +5x", 1e100); // 32
+            _upgrades.Add(trueFinalCubeUpgrade);
 
 
             autoProducers = new Upgrade("Unlocks the option to automate Producers", 100); // Flux 0
@@ -861,17 +866,17 @@ namespace Cubefinity
             autoOmni = new Upgrade("Unlocks the option to automate Omnificents", 1e6); // Flux 4
             _fluxUpgrades.Add(autoOmni);
 
-            fluxUpgrade1 = new Upgrade("Increases Primer boost from 0.25x/level to 0.35x/level", 1e6); // Flux 5
+            fluxUpgrade1 = new Upgrade("Increases Primer boost from 0.25x/level to 0.45x/level", 1e6); // Flux 5
             _fluxUpgrades.Add(fluxUpgrade1);
-            fluxUpgrade2 = new Upgrade("Increases Overcharger boost from 0.1x/level to 0.15x/level", 2000000); // Flux 6
+            fluxUpgrade2 = new Upgrade("Increases Overcharger boost from 0.15x/level to 0.25x/level", 2e6); // Flux 6
             _fluxUpgrades.Add(fluxUpgrade2);
             fluxUpgrade3 = new Upgrade("Every 5 levels of Overcharger grants an additional Primer level", 1e7); // Flux 7
             _fluxUpgrades.Add(fluxUpgrade3);
-            fluxUpgrade4 = new Upgrade("Decreases the cost of Primer levels by 75%", 50000000); // Flux 8
+            fluxUpgrade4 = new Upgrade("Decreases the cost of Primer levels by 75%", 5e7); // Flux 8
             _fluxUpgrades.Add(fluxUpgrade4);
             fluxUpgrade5 = new Upgrade("Decreases the cost of Overcharger levels by 50%", 1e8); // Flux 9
             _fluxUpgrades.Add(fluxUpgrade5);
-            fluxUpgrade6 = new Upgrade("Every 10 levels of Primer grants an additional Overcharger level", 500000000); // Flux 10
+            fluxUpgrade6 = new Upgrade("Every 10 levels of Primer grants an additional Overcharger level", 5e8); // Flux 10
             _fluxUpgrades.Add(fluxUpgrade6);
 
             fluxUpgrade7 = new Upgrade("Increases the amount of Flux gained from Fluxuations by A LOT!", 1e9); // Flux 11
@@ -900,9 +905,9 @@ namespace Cubefinity
 
             fractalUpgrade1 = new Upgrade("Each Fractal in your wallet increases Flux gained from Fluxuations by 5%", 0.01); // Fractal 0
             _fractalUpgrades.Add(fractalUpgrade1);
-            fractalUpgrade2 = new Upgrade("For each Fractal owned, decrease the cost of Producers, Architects and Designers by 2.5% \n(diminishing returns)", 1); // Fractal 1
+            fractalUpgrade2 = new Upgrade("For each Fractal owned, decrease the cost of Producers, Architects and Designers by 0.5% \n(diminishing returns)", 1); // Fractal 1
             _fractalUpgrades.Add(fractalUpgrade2);
-            fractalUpgrade3 = new Upgrade("For each Fractal owned, decrease the cost of Visionaries and Omnificents by 1% \n(diminishing returns)", 2.5); // Fractal 2
+            fractalUpgrade3 = new Upgrade("For each Fractal owned, decrease the cost of Visionaries and Omnificents by 0.25% \n(diminishing returns)", 2.5); // Fractal 2
             _fractalUpgrades.Add(fractalUpgrade3);
             fractalUpgrade4 = new Upgrade("Every Weaver owned grants an additional Producer, Architect and Engineer", 250); // Fractal 3
             _fractalUpgrades.Add(fractalUpgrade4);
@@ -1007,7 +1012,7 @@ namespace Cubefinity
             cubeAmountAch12 = new Achievement("And They're All Yours!", "Have 1e75 Cubes in your Cube Wallet!", "", "88fcc2", this); // 23
             _achievements.Add(cubeAmountAch12);
 
-            cubeAmountAch13 = new Achievement("Just Googol It", "Have 1e100 Cubes in your Cube Wallet!\n", "\n[c:c288fc]Unlocks a new Cube Upgrade!", "88fcc2", this); // 24
+            cubeAmountAch13 = new Achievement("Just Googol It", "Have 1e100 Cubes in your Cube Wallet!\n", "\n[c:c288fc]Unlocks the final Cube Upgrade!", "88fcc2", this); // 24
             _achievements.Add(cubeAmountAch13);
             cubeAmountAch14 = new Achievement("Not Just A River In Ireland", "Have 1e120 Cubes in your Cube Wallet!", "", "88fcc2", this); // 25
             _achievements.Add(cubeAmountAch14);
@@ -1182,6 +1187,7 @@ namespace Cubefinity
             allGen100ToOmniMult = _upgrades[29];
             cubeFinalUpgrade1 = _upgrades[30];
             cubeFinalUpgrade2 = _upgrades[31];
+            trueFinalCubeUpgrade = _upgrades[32];
 
 
 
@@ -1461,6 +1467,9 @@ namespace Cubefinity
 
             cubeFinalUpgrade2Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 20, cubeUpgrade1Pos.Y), EmptyTexture, "", new Color(36, 36, 36));
             cubeFinalUpgrade2Button.Click += CubeFinalUpgrade2Button_Clicked;
+
+            trueFinalCubeUpgradeButton = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 21, cubeUpgrade1Pos.Y + 42), EmptyTexture, "", new Color(36, 36, 36));
+            trueFinalCubeUpgradeButton.Click += TrueFinalCubeUpgradeButton_Clicked;
 
 
 
@@ -1930,8 +1939,8 @@ namespace Cubefinity
                     {
                         resourceManager.RemoveCubes(prod5Multi.Cost);
                         prod5Multi.Buy();
-                        _baseProducerMultiplier += 10;
-                        cubeProducer.CubeMultiplier += 10;
+                        _baseProducerMultiplier += 15;
+                        cubeProducer.CubeMultiplier += 15;
 
                     }
                 }
@@ -2401,6 +2410,20 @@ namespace Cubefinity
                         cubeOmni.CurrentCost *= _baseOmniCostMulti;
 
 
+                    }
+                }
+            }
+        } 
+        private void TrueFinalCubeUpgradeButton_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null && cubeAmountAch13.IsUnlocked)
+            {
+                if (isUpgradeSectionOpen)
+                {
+                    if (trueFinalCubeUpgrade.CanAfford(resourceManager.GetCubes()) && !trueFinalCubeUpgrade.IsActive)
+                    {
+                        resourceManager.RemoveFlux(trueFinalCubeUpgrade.Cost);
+                        trueFinalCubeUpgrade.Buy();
                     }
                 }
             }
@@ -3766,6 +3789,7 @@ namespace Cubefinity
                         prismUpgrade1Button, prismUpgrade2Button, prismUpgrade3Button, prismUpgrade4Button, prismUpgrade5Button, prismUpgrade6Button, 
                         prismUpgrade7Button, prismUpgrade8Button, prismUpgrade9Button, autoPrimerButton, autoOverchargerButton,
                         prismUpgrade10Button, prismUpgrade11Button, prismUpgrade12Button, prismUpgrade13Button, prismUpgrade14Button, 
+                        trueFinalCubeUpgradeButton, 
                     }
                     .FirstOrDefault(btn => btn._isHovering)?.HoverText ?? "";
                 }
@@ -3924,6 +3948,7 @@ namespace Cubefinity
         #region shit for Upgrades
         public static int _prevProdCount;
         public static int _prevProdCount2;
+        public static int _prevProdCount3;
         public static int _prevArchCount;
         public static int _prevArchCount2;
         public static int _prevEngiCount;
@@ -4045,6 +4070,22 @@ namespace Cubefinity
                     }
                 }
             }        
+            if (cubeAmountAch13.IsUnlocked) // If 1e100
+            {
+                if (trueFinalCubeUpgrade.IsActive)
+                {
+                    int prodCountDiff = cubeProducer.Quantity - _prevProdCount3;
+                    if (prodCountDiff != 0)
+                    {
+                        cubeProducer.CubeMultiplier += (_baseProducerMultiplier * (5 * prodCountDiff));
+                        cubeArchitect.CubeMultiplier += (_baseArchitectMultiplier * (5 * prodCountDiff));                      
+                        cubeEngineer.CubeMultiplier += (_baseEngineerMultiplier * (5 * prodCountDiff));
+                        cubeVisionary.CubeMultiplier += (_baseVisionaryMultiplier * (5 * prodCountDiff));
+                        cubeOmni.CubeMultiplier += (_baseOmniMultiplier * (5 * prodCountDiff));
+                        _prevProdCount3 += prodCountDiff;
+                    }
+                }
+            }
             if (cubeAmountAch6.IsUnlocked) // If Visionary Unlocked
             {
                 if (visMultFromProd.IsActive)
@@ -4052,7 +4093,7 @@ namespace Cubefinity
                     int prodCountDiff = cubeProducer.Quantity - _prevProdCount2;
                     if (prodCountDiff != 0)
                     {
-                        cubeVisionary.CubeMultiplier += (_baseVisionaryMultiplier * (0.1 * prodCountDiff));
+                        cubeVisionary.CubeMultiplier += (_baseVisionaryMultiplier * (0.25 * prodCountDiff));
                         _prevProdCount2 += prodCountDiff;
                     }
                 }
@@ -4061,7 +4102,7 @@ namespace Cubefinity
                     int archCountDiff = cubeArchitect.Quantity - _prevArchCount2;
                     if (archCountDiff != 0)
                     {
-                        cubeVisionary.CubeMultiplier += (_baseVisionaryMultiplier * (0.5 * archCountDiff));
+                        cubeVisionary.CubeMultiplier += (_baseVisionaryMultiplier * (0.75 * archCountDiff));
                         _prevArchCount2 += archCountDiff;
                     }
                 }
@@ -4070,7 +4111,7 @@ namespace Cubefinity
                     int engiCountDiff = cubeEngineer.Quantity - _prevEngiCount2;
                     if (engiCountDiff != 0)
                     {
-                        cubeVisionary.CubeMultiplier += (_baseVisionaryMultiplier * (1 * engiCountDiff));
+                        cubeVisionary.CubeMultiplier += (_baseVisionaryMultiplier * (1.25 * engiCountDiff));
                         _prevEngiCount2 += engiCountDiff;
                     }
                 }
@@ -4080,7 +4121,7 @@ namespace Cubefinity
                 int archCountDiff = cubeArchitect.Quantity - _prevArchCount;
                 if (archCountDiff != 0)
                 {
-                    cubeProducer.CubeMultiplier += (_baseProducerMultiplier * (0.01 * archCountDiff));
+                    cubeProducer.CubeMultiplier += (_baseProducerMultiplier * (0.05 * archCountDiff));
                     _prevArchCount += archCountDiff;
                 }
             }
@@ -4106,15 +4147,15 @@ namespace Cubefinity
                 int engiCountDiff = cubeEngineer.Quantity - _prevEngiCount;
                 if (engiCountDiff != 0)
                 {
-                    cubeArchitect.CubeMultiplier += (_baseArchitectMultiplier * (0.05 * engiCountDiff));
+                    cubeArchitect.CubeMultiplier += (_baseArchitectMultiplier * (0.1 * engiCountDiff));
                     _prevEngiCount += engiCountDiff;
                 }
             }
-            if (cube10GenToMulti.IsActive) // Every 10 Producers, Architects and Engineers, add 8% to all cube generators(Producer, Architect and Engineer)
+            if (cube10GenToMulti.IsActive) // Every 5 Producers, Architects and Engineers, add 5% to all cube generators(Producer, Architect and Engineer)
             {
                 int minNumberOfUnits = Math.Min(cubeProducer.Quantity, Math.Min(cubeArchitect.Quantity, cubeEngineer.Quantity));
-                int setsOfTen = minNumberOfUnits / 10;
-                double newCrossFunctionalContribution = 1 + (0.08 * setsOfTen);
+                int setsOfTen = minNumberOfUnits / 5;
+                double newCrossFunctionalContribution = 1 + (0.05 * setsOfTen);
 
                 if (setsOfTen > 0 && _crossFunctionalContribution != newCrossFunctionalContribution)
                 {
@@ -4146,7 +4187,7 @@ namespace Cubefinity
                 int prodCountDiff = cubeProducer.Quantity - _prevProdCount;
                 if (prodCountDiff != 0)
                 {
-                    cubeEngineer.CubeMultiplier += (_baseProducerMultiplier * (0.05 * prodCountDiff));
+                    cubeEngineer.CubeMultiplier += (_baseProducerMultiplier * (0.15 * prodCountDiff));
                     _prevProdCount += prodCountDiff;
                 }
             }
@@ -4170,7 +4211,7 @@ namespace Cubefinity
             {
                 int minNumberOfUnits = cubeProducer.Quantity;
                 int setsOfFifty = minNumberOfUnits / 50;
-                double newCrossFunctionalContribution = 1 + (2.5 * setsOfFifty);
+                double newCrossFunctionalContribution = 1 + (5 * setsOfFifty);
 
                 if (setsOfFifty > 0 && _crossFunctionalContribution3 != newCrossFunctionalContribution)
                 {
@@ -4219,6 +4260,7 @@ namespace Cubefinity
             
             UpdateUpgradeButton(cubeFinalUpgrade1Button, cubeFinalUpgrade1, UpgradeTexture, BaseCubeUpgradeIcon, 0, cubeAmountAch10.IsUnlocked);         
             UpdateUpgradeButton(cubeFinalUpgrade2Button, cubeFinalUpgrade2, UpgradeTexture, MultiCubeSaleIcon, 0, cubeAmountAch10.IsUnlocked);         
+            UpdateUpgradeButton(trueFinalCubeUpgradeButton, trueFinalCubeUpgrade, UpgradeTexture, BaseCubeUpgradeIcon, 0, cubeAmountAch13.IsUnlocked);         
         }
         
         private void AutomateUpgradeUpdate(GameTime gameTime)
@@ -4240,14 +4282,14 @@ namespace Cubefinity
 
             if (fluxUpgrade1.IsActive)
             {
-                primer.BoostPower = 0.3;
+                primer.BoostPower = 0.45;
             }
             else primer.BoostPower = 0.25; 
             if (fluxUpgrade2.IsActive)
             {
-                overcharger.BoostPower = 0.15;
+                overcharger.BoostPower = 0.25;
             }
-            else overcharger.BoostPower = 0.1;
+            else overcharger.BoostPower = 0.15;
             if (fluxUpgrade3.IsActive)
             {
                 int overchargerLevelDiff = (overcharger.Quantity / 5) - _prevOverchargerLevel3;
@@ -4416,14 +4458,14 @@ namespace Cubefinity
                 int fractCountDiff = (int)resourceManager.GetFractals() - _prevFractCount;
                 if (fractCountDiff != 0)
                 {
-                    _baseProducerCostMulti *= (0.975);
-                    cubeProducer.CurrentCost *= (0.975);
+                    _baseProducerCostMulti *= (0.995 / resourceManager.GetFractals());
+                    cubeProducer.CurrentCost *= (0.995 / resourceManager.GetFractals());
 
-                    _baseArchitectCostMulti *= (0.975);
-                    cubeArchitect.CurrentCost *= (0.975);
+                    _baseArchitectCostMulti *= (0.995 / resourceManager.GetFractals());
+                    cubeArchitect.CurrentCost *= (0.995 / resourceManager.GetFractals());
 
-                    _baseEngineerCostMulti *= (0.975);
-                    cubeEngineer.CurrentCost *= (0.975);
+                    _baseEngineerCostMulti *= (0.995 / resourceManager.GetFractals());
+                    cubeEngineer.CurrentCost *= (0.995 / resourceManager.GetFractals());
 
                     _prevFractCount += fractCountDiff;
                 }
@@ -4434,11 +4476,11 @@ namespace Cubefinity
                 int fractCountDiff = (int)resourceManager.GetFractals() - _prevFractCount2;
                 if (fractCountDiff != 0)
                 {
-                    _baseVisionaryCostMulti *= (0.99);
-                    cubeVisionary.CurrentCost *= 0.99;
+                    _baseVisionaryCostMulti *= 0.9975;
+                    cubeVisionary.CurrentCost *= 0.9975;
 
-                    _baseOmniCostMulti *= (0.99);
-                    cubeOmni.CurrentCost *= 0.99;
+                    _baseOmniCostMulti *= 0.9975;
+                    cubeOmni.CurrentCost *= 0.9975;
 
                     _prevFractCount2 += fractCountDiff;
                 }
