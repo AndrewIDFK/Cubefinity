@@ -332,6 +332,16 @@ namespace Cubefinity
             MainGame._prevOverchargerLevel3 = 0;
             MainGame._prevPrimerLevel4 = 0;
 
+            MainGame._prevFractCount = 0;
+            MainGame._prevFractCount2 = 0;
+            MainGame._prevWeaverCount = 0;
+            MainGame._prevForgerCount = 0;
+            MainGame._prevNexusCount = 0;
+            MainGame._prevFluxuateCount = 0;
+            MainGame._prevFluxuateCount2 = 0;
+
+            
+
 
         }
         public void ResetResources2() // RITUAL
@@ -419,6 +429,14 @@ namespace Cubefinity
 
             MainGame._prevOverchargerLevel3 = 0;
             MainGame._prevPrimerLevel4 = 0;
+
+            MainGame._prevFractCount = 0;
+            MainGame._prevFractCount2 = 0;
+            MainGame._prevWeaverCount = 0;
+            MainGame._prevForgerCount = 0;
+            MainGame._prevNexusCount = 0;
+            MainGame._prevFluxuateCount = 0;
+            MainGame._prevFluxuateCount2 = 0;
         }
     }
 

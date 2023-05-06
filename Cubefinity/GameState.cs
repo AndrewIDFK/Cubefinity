@@ -10,6 +10,7 @@ namespace Cubefinity
     [Serializable]
     public class GameState
     {
+        
         public int Version { get; set; }
         public double Cubes { get; set; }
         public double Fractals { get; set; }
@@ -178,12 +179,12 @@ namespace Cubefinity
             PrismUpgrade11Contri = MainGame._prismUpgrade11Contri;
             PreviousForgerMultiplier = MainGame._previousForgerMultiplier;
 
-            Version = 1;  //CHANGE VERSION TO TO 2 ONCE UPDATE COMPLETE
+            Version = 2; 
         }
 
         public void Migrate()
         {
-            if (Version < 2) //CHANGE VERSION TO TO 3 ONCE UPDATE COMPLETE
+            if (Version < 3) 
             {
                 if (Upgrades.Count < MainGame._upgrades.Count)
                 {
@@ -228,7 +229,7 @@ namespace Cubefinity
                     }
                 }
                 UpdateOldValues(); // Call the UpdateOldValues method
-                Version = 2; //CHANGE VERSION TO TO 3 ONCE UPDATE COMPLETE
+                Version = 3; 
             }
         }
 
