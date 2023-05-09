@@ -252,6 +252,30 @@ namespace Cubefinity
         Upgrade trueFinalCubeUpgrade;
         UIUpgradeButton trueFinalCubeUpgradeButton;
 
+        // from ritualAmountAch6
+        Upgrade prismUpgrade15;
+        UIUpgradeButton prismUpgrade15Button;
+        Upgrade prismUpgrade16;
+        UIUpgradeButton prismUpgrade16Button;
+        Upgrade prismUpgrade17;
+        UIUpgradeButton prismUpgrade17Button;
+
+        // from ritualAmountAch6
+        Upgrade prismUpgrade18;
+        UIUpgradeButton prismUpgrade18Button;
+        Upgrade prismUpgrade19;
+        UIUpgradeButton prismUpgrade19Button;
+
+        // from fractalAmountAch5
+        Upgrade fractalUpgrade12;
+        UIUpgradeButton fractalUpgrade12Button;
+        Upgrade fractalUpgrade13;
+        UIUpgradeButton fractalUpgrade13Button;
+        Upgrade fractalUpgrade14;
+        UIUpgradeButton fractalUpgrade14Button;
+        Upgrade fractalUpgrade15;
+        UIUpgradeButton fractalUpgrade15Button;
+
         #endregion
 
         #region Achievements
@@ -331,6 +355,21 @@ namespace Cubefinity
         UIAchievementButton fluxuateAmountAch11Button; 
         Achievement fluxuateAmountAch12;
         UIAchievementButton fluxuateAmountAch12Button; 
+
+        Achievement ritualAmountAch7;
+        UIAchievementButton ritualAmountAch7Button;
+
+        Achievement fractalAmountAch1;
+        UIAchievementButton fractalAmountAch1Button;
+        Achievement fractalAmountAch2;
+        UIAchievementButton fractalAmountAch2Button;
+        Achievement fractalAmountAch3;
+        UIAchievementButton fractalAmountAch3Button;
+        Achievement fractalAmountAch4;
+        UIAchievementButton fractalAmountAch4Button;
+        Achievement fractalAmountAch5;
+        UIAchievementButton fractalAmountAch5Button;
+
 
         #endregion
 
@@ -764,6 +803,21 @@ namespace Cubefinity
                 cubeAmountAch16Button,
                 cubeAmountAch17Button,
                 trueFinalCubeUpgradeButton,
+                prismUpgrade15Button,
+                prismUpgrade16Button,
+                prismUpgrade17Button,
+                ritualAmountAch7Button,
+                prismUpgrade18Button,
+                prismUpgrade19Button,
+                fractalAmountAch1Button,
+                fractalAmountAch2Button,
+                fractalAmountAch3Button,
+                fractalAmountAch4Button,
+                fractalAmountAch5Button,
+                fractalUpgrade12Button,
+                fractalUpgrade13Button,
+                fractalUpgrade14Button,
+                fractalUpgrade15Button,
             };
         }
 
@@ -932,7 +986,7 @@ namespace Cubefinity
             _fluxUpgrades.Add(fluxUpgrade9);
 
             
-            prismUpgrade1 = new Upgrade("Every Prism in your wallet increases all Cube generator multipliers", 0.5); // Prism 0
+            prismUpgrade1 = new Upgrade("For each Prism in your wallet, all Cube multipliers are multiplied by 0.1x", 0.5); // Prism 0
             _prismUpgrades.Add(prismUpgrade1);
             prismUpgrade2 = new Upgrade("Reduces the cost of Primer and Overcharger levels by 75%", 0.75); // Prism 1
             _prismUpgrades.Add(prismUpgrade2);
@@ -950,7 +1004,7 @@ namespace Cubefinity
 
             fractalUpgrade1 = new Upgrade("Each Fractal in your wallet increases Flux gained from Fluxuations by 5%", 0.01); // Fractal 0
             _fractalUpgrades.Add(fractalUpgrade1);
-            fractalUpgrade2 = new Upgrade("For each Fractal owned, decrease the cost of Producers, Architects and Designers by 0.5% \n(diminishing returns)", 1); // Fractal 1
+            fractalUpgrade2 = new Upgrade("For each Fractal owned, decrease the cost of Producers, Architects and Designers by 0.25% \n(diminishing returns)", 1); // Fractal 1
             _fractalUpgrades.Add(fractalUpgrade2);
             fractalUpgrade3 = new Upgrade("For each Fractal owned, decrease the cost of Visionaries and Omnificents by 0.25% \n(diminishing returns)", 2.5); // Fractal 2
             _fractalUpgrades.Add(fractalUpgrade3);
@@ -1008,9 +1062,28 @@ namespace Cubefinity
 
             autoPrimerBoost = new Upgrade("Increases the speed of the Primer automator by 10x", 5000); // Prism 16
             _prismUpgrades.Add(autoPrimerBoost);
-            autoOverchargerBoost = new Upgrade("Increases the speed of the Overcharger automator by 10x", 5000); // Prism 17
+            autoOverchargerBoost = new Upgrade("Increases the speed of the Overcharger automator by 10x", 7500); // Prism 17
             _prismUpgrades.Add(autoOverchargerBoost);
 
+            prismUpgrade15 = new Upgrade("Further increases Weavers base multiplier by +100x", 2500); // Prism 18
+            _prismUpgrades.Add(prismUpgrade15);
+            prismUpgrade16 = new Upgrade("Further increases Forgers base multiplier by +75x", 5000); // Prism 19
+            _prismUpgrades.Add(prismUpgrade16);
+            prismUpgrade17 = new Upgrade("Further increases Nexus base multiplier by +50x", 7500); // Prism 20
+            _prismUpgrades.Add(prismUpgrade17);
+            prismUpgrade18 = new Upgrade("Every 2 Rituals conducted grants an additional Forger", 25000); // Prism 21
+            _prismUpgrades.Add(prismUpgrade18);
+            prismUpgrade19 = new Upgrade("Every 5 Rituals conducted grants an additional Nexus", 50000); // Prism 22
+            _prismUpgrades.Add(prismUpgrade19);
+
+            fractalUpgrade12 = new Upgrade("Grants 100 additional Producers for each Ritual conducted", 75); // Fractal 11
+            _fractalUpgrades.Add(fractalUpgrade12);
+            fractalUpgrade13 = new Upgrade("Grants 75 additional Architects for each Ritual conducted", 100); // Fractal 12
+            _fractalUpgrades.Add(fractalUpgrade13);
+            fractalUpgrade14 = new Upgrade("Grants 50 additional Designers for each Ritual conducted", 125); // Fractal 13
+            _fractalUpgrades.Add(fractalUpgrade14);
+            fractalUpgrade15 = new Upgrade("Grants 10 additional Visionaries and Omnificents for each Ritual conducted", 250); // Fractal 14
+            _fractalUpgrades.Add(fractalUpgrade15);
 
 
             #endregion
@@ -1065,7 +1138,7 @@ namespace Cubefinity
             _achievements.Add(ritualAmountAch4);
             ritualAmountAch5 = new Achievement("Do Prisms Dream of Reflection?", "Conduct 50 Rituals in total!\n", "\n[c:c288fc]Unlocks new Prism upgrades! (Woah, unique!)", "88fcc2", this); // 20
             _achievements.Add(ritualAmountAch5); 
-            ritualAmountAch6 = new Achievement("Rituals Are Red All Over", "Conduct 100 Rituals in total!", "", "88fcc2", this); // 21
+            ritualAmountAch6 = new Achievement("Rituals Are Red All Over", "Conduct 100 Rituals in total!\n", "\n[c:c288fc]Guess what, it's more Prism upgrades!", "88fcc2", this); // 21
             _achievements.Add(ritualAmountAch6);
 
             cubeAmountAch11 = new Achievement("So Many Cubes...", "Have 1e50 Cubes in your Cube Wallet!", "", "88fcc2", this); // 22    MAYBE MAKE THIS AND OTHER SIMILAR ONES PERMANENTLY UNLOCK CUBE UPGRADES :SHRUG:
@@ -1096,6 +1169,21 @@ namespace Cubefinity
             _achievements.Add(fluxuateAmountAch11);
             fluxuateAmountAch12 = new Achievement("10K Fluxuations: The End?", "Why is there a question mark? WHY IS THERE A FU-", "", "88fcc2", this); // 34
             _achievements.Add(fluxuateAmountAch12);
+
+            ritualAmountAch7 = new Achievement("Feelin' Cute, Time For Rituals", "Conduct 250 Rituals in total!\n", "\n[c:c288fc]Oh boy, a few new Prism upgrades? Aw, you shouldn't have. I mean it, stop it.", "88fcc2", this); // 35
+            _achievements.Add(ritualAmountAch7);
+
+            
+            fractalAmountAch1 = new Achievement("And On And On And On And On...", "Have 0.1 Fractals in your Fractal Wallet!", "", "88fcc2", this); // 36
+            _achievements.Add(fractalAmountAch1);
+            fractalAmountAch2 = new Achievement("Infinite Possibilities", "Have 1 Fractal in your Fractal Wallet!", "", "88fcc2", this); // 37
+            _achievements.Add(fractalAmountAch2);
+            fractalAmountAch3 = new Achievement("Fractional Fractal Fractions", "Have 10 Fractals in your Fractal Wallet!", "", "88fcc2", this); // 38
+            _achievements.Add(fractalAmountAch3);
+            fractalAmountAch4 = new Achievement("Create The Endless Cycle", "Have 100 Fractals in your Fractal Wallet!", "", "88fcc2", this); // 39
+            _achievements.Add(fractalAmountAch4);
+            fractalAmountAch5 = new Achievement("Fractals Require Power", "Have 250 Fractals in your Fractal Wallet!\n", "\n[c:c288fc]Unlocks a couple new Fractal upgrades!", "88fcc2", this); // 40
+            _achievements.Add(fractalAmountAch5);
 
             
             InitializeAchievementCriteria();
@@ -1163,6 +1251,14 @@ namespace Cubefinity
                 { "How Many Of These Are There?!", () => resourceManager.GetFluxuateAmount() >= 2500 },
                 { "This HAS To Be The Last One!", () => resourceManager.GetFluxuateAmount() >= 5000 },
                 { "10K Fluxuations: The End?", () => resourceManager.GetFluxuateAmount() >= 10000 },
+
+                { "Feelin' Cute, Time For Rituals", () => resourceManager.GetRitualAmount() >= 250 },
+                
+                { "And On And On And On And On...", () => resourceManager.GetFractals() >= 0.1 },
+                { "Infinite Possibilities", () => resourceManager.GetFractals() >= 1 },
+                { "Fractional Fractal Fractions", () => resourceManager.GetFractals() >= 10 },
+                { "Create The Endless Cycle", () => resourceManager.GetFractals() >= 100 },
+                { "Fractals Require Power", () => resourceManager.GetFractals() >= 250 },
 
             };
         }
@@ -1311,6 +1407,11 @@ namespace Cubefinity
             prismUpgrade14 = _prismUpgrades[15];
             autoPrimerBoost = _prismUpgrades[16];
             autoOverchargerBoost = _prismUpgrades[17];
+            prismUpgrade15 = _prismUpgrades[18];
+            prismUpgrade16 = _prismUpgrades[19];
+            prismUpgrade17 = _prismUpgrades[20];
+            prismUpgrade18 = _prismUpgrades[21];
+            prismUpgrade19 = _prismUpgrades[22];
 
             fractalUpgrade1 = _fractalUpgrades[0];
             fractalUpgrade2 = _fractalUpgrades[1];
@@ -1323,6 +1424,10 @@ namespace Cubefinity
             fractalUpgrade9 = _fractalUpgrades[8];
             fractalUpgrade10 = _fractalUpgrades[9];
             fractalUpgrade11 = _fractalUpgrades[10];
+            fractalUpgrade12 = _fractalUpgrades[11];
+            fractalUpgrade13 = _fractalUpgrades[12];
+            fractalUpgrade14 = _fractalUpgrades[13];
+            fractalUpgrade15 = _fractalUpgrades[14];
 
 
 
@@ -1360,6 +1465,7 @@ namespace Cubefinity
             ritualAmountAch6 = _achievements[21];
             cubeAmountAch11 = _achievements[22];
             cubeAmountAch12 = _achievements[23];
+            
             // UPDATE 0.3 ACHIEVEMENTS BELOW
             cubeAmountAch13 = _achievements[24];
             cubeAmountAch14 = _achievements[25];
@@ -1372,6 +1478,12 @@ namespace Cubefinity
             fluxuateAmountAch10 = _achievements[32];
             fluxuateAmountAch11 = _achievements[33];
             fluxuateAmountAch12 = _achievements[34];
+            ritualAmountAch7 = _achievements[35];
+            fractalAmountAch1 = _achievements[36];
+            fractalAmountAch2 = _achievements[37];
+            fractalAmountAch3 = _achievements[38];
+            fractalAmountAch4 = _achievements[39];
+            fractalAmountAch5 = _achievements[40];
 
 
             _prevProdCount = savedData.PrevProdCount;
@@ -1405,8 +1517,11 @@ namespace Cubefinity
             _prevRitualAmount1 = savedData.PrevRitualAmount1;
             _prevRitualAmount2 = savedData.PrevRitualAmount2;
             _prevRitualAmount3 = savedData.PrevRitualAmount3;
+            _prevRitualAmount4 = savedData.PrevRitualAmount4;
+            _prevRitualAmount5 = savedData.PrevRitualAmount5;
             howManyTimes = savedData.HowManyTimes;
             howManyTimes2 = savedData.HowManyTimes2;
+            howManyTimes3 = savedData.HowManyTimes3;
 
 
             _baseProducerMultiplier = savedData.BaseProducerMultiplier;
@@ -1445,6 +1560,14 @@ namespace Cubefinity
             _previousWeaverMultiplier = savedData.PreviousWeaverMultiplier;
             _prismUpgrade11Contri = savedData.PrismUpgrade11Contri;
             _previousForgerMultiplier = savedData.PreviousForgerMultiplier;
+
+            _prevRitualCount1 = savedData.PrevRitualCount1;
+            _prevRitualCount2 = savedData.PrevRitualCount2;
+            _prevRitualCount3 = savedData.PrevRitualCount3;
+            _prevRitualCount4 = savedData.PrevRitualCount4;
+
+            _prevPrimerQuantity = savedData.PrevPrimerQuantity;
+            _prevOverchargerQuantity = savedData.PrevOverchargerQuantity;
 
         }
 
@@ -1683,6 +1806,21 @@ namespace Cubefinity
             
             prismUpgrade14Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 9, cubeUpgrade1Pos.Y + (42 * 15) + 42), EmptyTexture, "", new Color(36, 36, 36));
             prismUpgrade14Button.Click += PrismUpgrade14Button_Clicked;
+            
+            prismUpgrade15Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 8, cubeUpgrade1Pos.Y + (42 * 15) + 42 * 2), EmptyTexture, "", new Color(36, 36, 36));
+            prismUpgrade15Button.Click += PrismUpgrade15Button_Clicked;
+
+            prismUpgrade16Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 10, cubeUpgrade1Pos.Y + (42 * 15)), EmptyTexture, "", new Color(36, 36, 36));
+            prismUpgrade16Button.Click += PrismUpgrade16Button_Clicked;
+            
+            prismUpgrade17Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 11, cubeUpgrade1Pos.Y + (42 * 15) + 42), EmptyTexture, "", new Color(36, 36, 36));
+            prismUpgrade17Button.Click += PrismUpgrade17Button_Clicked;
+            
+            prismUpgrade18Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 10, cubeUpgrade1Pos.Y + (42 * 15) + 42 * 2), EmptyTexture, "", new Color(36, 36, 36));
+            prismUpgrade18Button.Click += PrismUpgrade18Button_Clicked;
+            
+            prismUpgrade19Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(cubeUpgrade1Pos.X + 42 * 12, cubeUpgrade1Pos.Y + (42 * 15)), EmptyTexture, "", new Color(36, 36, 36));
+            prismUpgrade19Button.Click += PrismUpgrade19Button_Clicked;
 
 
             
@@ -1720,6 +1858,18 @@ namespace Cubefinity
            
             fractalUpgrade11Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(((1920 / 2) - 164) + 42 * 5, (cubeProducerPos.Y + 400 + 42)), EmptyTexture, "", new Color(36, 36, 36));
             fractalUpgrade11Button.Click += FractalUpgrade11Button_Clicked;
+          
+            fractalUpgrade12Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(((1920 / 2) - 164) - 42, (cubeProducerPos.Y + 400 + 42 * 3)), EmptyTexture, "", new Color(36, 36, 36));
+            fractalUpgrade12Button.Click += FractalUpgrade12Button_Clicked;
+           
+            fractalUpgrade13Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(((1920 / 2) - 164) - 42 * 2, (cubeProducerPos.Y + 400 + 42 * 4)), EmptyTexture, "", new Color(36, 36, 36));
+            fractalUpgrade13Button.Click += FractalUpgrade13Button_Clicked;
+          
+            fractalUpgrade14Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(((1920 / 2) - 164) - 42 * 3, (cubeProducerPos.Y + 400 + 42 * 3)), EmptyTexture, "", new Color(36, 36, 36));
+            fractalUpgrade14Button.Click += FractalUpgrade14Button_Clicked;
+           
+            fractalUpgrade15Button = new UIUpgradeButton(EmptyTexture, new Rectangle(64, 64, 86, 86), new Vector2(((1920 / 2) - 164) - 42 * 2, (cubeProducerPos.Y + 400 + 42 * 6)), EmptyTexture, "", new Color(36, 36, 36));
+            fractalUpgrade15Button.Click += FractalUpgrade15Button_Clicked;
 
         }
         public void AchievementLoading()
@@ -1766,6 +1916,14 @@ namespace Cubefinity
             fluxuateAmountAch10Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 9, achievement1Pos.Y + 80), EmptyTexture, "", new Color(36, 36, 36), false);
             fluxuateAmountAch11Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 10, achievement1Pos.Y + 80), EmptyTexture, "", new Color(36, 36, 36), true);
             fluxuateAmountAch12Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 11, achievement1Pos.Y + 80), EmptyTexture, "", new Color(36, 36, 36), false);
+
+            ritualAmountAch7Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 6, achievement1Pos.Y + 160), EmptyTexture, "", new Color(36, 36, 36), false);
+           
+            fractalAmountAch1Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X, achievement1Pos.Y + 240), EmptyTexture, "", new Color(36, 36, 36), true);
+            fractalAmountAch2Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50, achievement1Pos.Y + 240), EmptyTexture, "", new Color(36, 36, 36), false);
+            fractalAmountAch3Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 2, achievement1Pos.Y + 240), EmptyTexture, "", new Color(36, 36, 36), true);
+            fractalAmountAch4Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 3, achievement1Pos.Y + 240), EmptyTexture, "", new Color(36, 36, 36), false);
+            fractalAmountAch5Button = new UIAchievementButton(EmptyTexture, new Rectangle(100, 80, 100, 80), new Vector2(achievement1Pos.X + 50 * 4, achievement1Pos.Y + 240), EmptyTexture, "", new Color(36, 36, 36), true);
 
         }
         private void ProdAutoButton_Clicked(object sender, EventArgs e)
@@ -2998,6 +3156,82 @@ namespace Cubefinity
                 }
             }
         }        
+        private void PrismUpgrade15Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null && ritualAmountAch6.IsUnlocked)
+            {
+                if (isUpgradeSectionOpen)
+                {
+                    if (prismUpgrade15.CanAfford(resourceManager.GetPrism()) && !prismUpgrade15.IsActive)
+                    {
+                        resourceManager.RemovePrism(prismUpgrade15.Cost);
+                        prismUpgrade15.Buy();
+                        _baseWeaverMultiplier += 100;
+                        fractalWeaver.FractalMultiplier += 100;
+                    }
+                }
+            }
+        }        
+        private void PrismUpgrade16Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null && ritualAmountAch6.IsUnlocked)
+            {
+                if (isUpgradeSectionOpen)
+                {
+                    if (prismUpgrade16.CanAfford(resourceManager.GetPrism()) && !prismUpgrade16.IsActive)
+                    {
+                        resourceManager.RemovePrism(prismUpgrade16.Cost);
+                        prismUpgrade16.Buy();
+                        _baseForgerMultiplier += 75;
+                        fractalForger.FractalMultiplier += 75;
+                    }
+                }
+            }
+        }        
+        private void PrismUpgrade17Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null && ritualAmountAch6.IsUnlocked)
+            {
+                if (isUpgradeSectionOpen)
+                {
+                    if (prismUpgrade17.CanAfford(resourceManager.GetPrism()) && !prismUpgrade17.IsActive)
+                    {
+                        resourceManager.RemovePrism(prismUpgrade17.Cost);
+                        prismUpgrade17.Buy();
+                        _baseNexusMultiplier += 50;
+                        fractalNexus.FractalMultiplier += 50;
+                    }
+                }
+            }
+        }        
+        private void PrismUpgrade18Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null && ritualAmountAch7.IsUnlocked)
+            {
+                if (isUpgradeSectionOpen)
+                {
+                    if (prismUpgrade18.CanAfford(resourceManager.GetPrism()) && !prismUpgrade18.IsActive)
+                    {
+                        resourceManager.RemovePrism(prismUpgrade18.Cost);
+                        prismUpgrade18.Buy();
+                    }
+                }
+            }
+        }        
+        private void PrismUpgrade19Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null && ritualAmountAch7.IsUnlocked)
+            {
+                if (isUpgradeSectionOpen)
+                {
+                    if (prismUpgrade19.CanAfford(resourceManager.GetPrism()) && !prismUpgrade19.IsActive)
+                    {
+                        resourceManager.RemovePrism(prismUpgrade19.Cost);
+                        prismUpgrade19.Buy();
+                    }
+                }
+            }
+        }        
         private void FractalUpgrade1Button_Clicked(object sender, EventArgs e)
         {
             if (_confirmationPopup == null)
@@ -3159,6 +3393,62 @@ namespace Cubefinity
                     {
                         resourceManager.RemoveFractals(fractalUpgrade11.Cost);
                         fractalUpgrade11.Buy();
+                    }
+                }
+            }
+        }
+        private void FractalUpgrade12Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null)
+            {
+                if (isFractalGeneratorsSectionOpen && fractalAmountAch5.IsUnlocked)
+                {
+                    if (fractalUpgrade12.CanAfford(resourceManager.GetFractals()) && !fractalUpgrade12.IsActive)
+                    {
+                        resourceManager.RemoveFractals(fractalUpgrade12.Cost);
+                        fractalUpgrade12.Buy();
+                    }
+                }
+            }
+        }
+        private void FractalUpgrade13Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null)
+            {
+                if (isFractalGeneratorsSectionOpen && fractalAmountAch5.IsUnlocked)
+                {
+                    if (fractalUpgrade13.CanAfford(resourceManager.GetFractals()) && !fractalUpgrade13.IsActive)
+                    {
+                        resourceManager.RemoveFractals(fractalUpgrade13.Cost);
+                        fractalUpgrade13.Buy();
+                    }
+                }
+            }
+        }
+        private void FractalUpgrade14Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null)
+            {
+                if (isFractalGeneratorsSectionOpen && fractalAmountAch5.IsUnlocked)
+                {
+                    if (fractalUpgrade14.CanAfford(resourceManager.GetFractals()) && !fractalUpgrade14.IsActive)
+                    {
+                        resourceManager.RemoveFractals(fractalUpgrade14.Cost);
+                        fractalUpgrade14.Buy();
+                    }
+                }
+            }
+        }
+        private void FractalUpgrade15Button_Clicked(object sender, EventArgs e)
+        {
+            if (_confirmationPopup == null)
+            {
+                if (isFractalGeneratorsSectionOpen && fractalAmountAch5.IsUnlocked)
+                {
+                    if (fractalUpgrade15.CanAfford(resourceManager.GetFractals()) && !fractalUpgrade15.IsActive)
+                    {
+                        resourceManager.RemoveFractals(fractalUpgrade15.Cost);
+                        fractalUpgrade15.Buy();
                     }
                 }
             }
@@ -3502,10 +3792,26 @@ namespace Cubefinity
         #endregion
 
 
+
+        private float _fluxAutoUpdateTime;
+        private float _fluxAutoUpdateInterval = 0.11f; // seconds
+        private float _ritualAutoUpdateTime;
+        private float _ritualAutoUpdateInterval = 0.11f; // seconds
+
         protected override void Update(GameTime gameTime)
         {
             foreach (var component in _gameComponents) component.Update(gameTime);
 
+            cubeProducer.Quantity = Math.Floor(cubeProducer.Quantity);
+            cubeArchitect.Quantity = Math.Floor(cubeArchitect.Quantity);
+            cubeEngineer.Quantity = Math.Floor(cubeEngineer.Quantity);
+            cubeVisionary.Quantity = Math.Floor(cubeVisionary.Quantity);
+            cubeOmni.Quantity = Math.Floor(cubeOmni.Quantity);
+            primer.Quantity = Math.Floor(primer.Quantity);
+            overcharger.Quantity = Math.Floor(overcharger.Quantity);
+            fractalWeaver.Quantity = Math.Floor(fractalWeaver.Quantity);
+            fractalForger.Quantity = Math.Floor(fractalForger.Quantity);
+            fractalNexus.Quantity = Math.Floor(fractalNexus.Quantity);
 
             double elapsedTime = gameTime.ElapsedGameTime.TotalSeconds;
             double cubes = resourceManager.GetCubes();
@@ -3517,6 +3823,27 @@ namespace Cubefinity
                 resourceManager.SetCubes(1e200);
             }
 
+            if(cubeProducer.CurrentCost <= 0.00001) cubeProducer.CurrentCost = 0.00001;
+            if(cubeArchitect.CurrentCost <= 0.00001) cubeArchitect.CurrentCost = 0.00001;
+            if(cubeEngineer.CurrentCost <= 0.00001) cubeEngineer.CurrentCost = 0.00001;
+            if(cubeVisionary.CurrentCost <= 0.00001) cubeVisionary.CurrentCost = 0.00001;
+            if(cubeOmni.CurrentCost <= 0.00001) cubeOmni.CurrentCost = 0.00001;
+            if(primer.CurrentCost <= 0.00001) primer.CurrentCost = 0.00001;
+            if(overcharger.CurrentCost <= 0.00001) overcharger.CurrentCost = 0.00001;
+            if(fractalWeaver.CurrentCost <= 0.00001) fractalWeaver.CurrentCost = 0.00001;
+            if(fractalForger.CurrentCost <= 0.00001) fractalForger.CurrentCost = 0.00001;
+            if(fractalNexus.CurrentCost <= 0.00001) fractalNexus.CurrentCost = 0.00001;
+
+            if(cubeProducer.Quantity >= 1e300) cubeProducer.Quantity = 1e300;
+            if(cubeArchitect.Quantity >= 1e300) cubeArchitect.Quantity = 1e300;
+            if(cubeEngineer.Quantity >= 1e300) cubeEngineer.Quantity = 1e300;
+            if(cubeVisionary.Quantity >= 1e300) cubeVisionary.Quantity = 1e300;
+            if(cubeOmni.Quantity >= 1e300) cubeOmni.Quantity = 1e300;
+            if(primer.Quantity >= 1e300) primer.Quantity = 1e300;
+            if(overcharger.Quantity >= 1e300) overcharger.Quantity = 1e300;
+            if(fractalWeaver.Quantity >= 1e300) fractalWeaver.Quantity = 1e300;
+            if(fractalForger.Quantity >= 1e300) fractalForger.Quantity = 1e300;
+            if(fractalNexus.Quantity >= 1e300) fractalNexus.Quantity = 1e300;
 
             if (resourceManager.GetFlux() > 1e300)
             {
@@ -3691,7 +4018,13 @@ namespace Cubefinity
                 ritualButton.ButtonTexture = ButtonTexture;
                 if (_confirmationPopup == null)
                 {
-                    ritualButton.HoverText = $"[c:88c2fc]Cubes Needed: {new BigNumber(resourceManager.GetCubes())} / 1e20 \n[c:fc8888]Prisms Gained: {new BigNumber(resourceManager.CalculatePrism(resourceManager.GetCubes()))}";
+                    if(fluxuateFromRitual)
+                    {
+                        ritualButton.HoverText = $"[c:88c2fc]Cubes Needed: {new BigNumber(resourceManager.GetCubes())} / 1e20 \n[c:fc8888]Prisms Gained: {new BigNumber(resourceManager.CalculatePrism(resourceManager.GetCubes()))} \n[c:88fcfc]Flux Gained: {new BigNumber(resourceManager.CalculateFlux(resourceManager.GetCubes(), fluxUpgrade7.IsActive))}";
+                    }
+                    else ritualButton.HoverText = $"[c:88c2fc]Cubes Needed: {new BigNumber(resourceManager.GetCubes())} / 1e20 \n[c:fc8888]Prisms Gained: {new BigNumber(resourceManager.CalculatePrism(resourceManager.GetCubes()))}";
+              
+
                     ritualButton.Click += RitualButton_Clicked;
                 }
                 else ritualButton.HoverText = "";
@@ -3769,22 +4102,36 @@ namespace Cubefinity
             {
                 _fluxuateAutoButton.HoverText = "Fluxuates immediately when conditions are met!";
                 if (_fluxuateAutoEnabled)
-                {                    
-                    if (resourceManager.CalculateFlux(resourceManager.GetCubes(), fluxUpgrade7.IsActive) >= 1)
+                {
+                    _fluxAutoUpdateTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (_fluxAutoUpdateTime >= _fluxAutoUpdateInterval)
                     {
-                        resourceManager.Fluxuate();
+                        if (resourceManager.CalculateFlux(resourceManager.GetCubes(), fluxUpgrade7.IsActive) >= 1.0000001)
+                        {
+                            resourceManager.Fluxuate();
+                        }
+                        _fluxAutoUpdateTime = 0f;
                     }
                 }
             }
+
             if (ritualAmountAch4.IsUnlocked)
             {
                 _ritualAutoButton.HoverText = "Conducts a Ritual immediately when conditions are met!";
                 if (_ritualAutoEnabled)
                 {                    
-                    if (resourceManager.CalculatePrism(resourceManager.GetCubes()) >= 1)
+                    _ritualAutoUpdateTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (_ritualAutoUpdateTime >= _ritualAutoUpdateInterval)
                     {
-                        resourceManager.Ritual();
+                        if (resourceManager.CalculatePrism(resourceManager.GetCubes()) >= 1.0000001)
+                        {
+                            resourceManager.Ritual();
+                        }
+                        _ritualAutoUpdateTime = 0f;
                     }
+                    
                 }
             }
             
@@ -3864,6 +4211,14 @@ namespace Cubefinity
             UpdateAchievementButton(fluxuateAmountAch10Button, fluxuateAmountAch10, AchievementTexture, Content.Load<Texture2D>("UI/FluxTexture"));
             UpdateAchievementButton(fluxuateAmountAch11Button, fluxuateAmountAch11, AchievementTexture, Content.Load<Texture2D>("UI/FluxTexture"));
             UpdateAchievementButton(fluxuateAmountAch12Button, fluxuateAmountAch12, AchievementTexture, Content.Load<Texture2D>("UI/FluxTexture"));
+
+            UpdateAchievementButton(ritualAmountAch7Button, ritualAmountAch7, AchievementTexture, Content.Load<Texture2D>("UI/PrismTexture"));
+           
+            UpdateAchievementButton(fractalAmountAch1Button, fractalAmountAch1, AchievementTexture, Content.Load<Texture2D>("UI/FractalTexture"));
+            UpdateAchievementButton(fractalAmountAch2Button, fractalAmountAch2, AchievementTexture, Content.Load<Texture2D>("UI/FractalTexture"));
+            UpdateAchievementButton(fractalAmountAch3Button, fractalAmountAch3, AchievementTexture, Content.Load<Texture2D>("UI/FractalTexture"));
+            UpdateAchievementButton(fractalAmountAch4Button, fractalAmountAch4, AchievementTexture, Content.Load<Texture2D>("UI/FractalTexture"));
+            UpdateAchievementButton(fractalAmountAch5Button, fractalAmountAch5, AchievementTexture, Content.Load<Texture2D>("UI/FractalTexture"));
 
         }
         private void UpdateAchievementButton(UIAchievementButton btn, Achievement ach, Texture2D tex, Texture2D icn)
@@ -4018,8 +4373,9 @@ namespace Cubefinity
                         prismUpgrade7Button, prismUpgrade8Button, prismUpgrade9Button, autoPrimerButton, autoOverchargerButton,
                         prismUpgrade10Button, prismUpgrade11Button, prismUpgrade12Button, prismUpgrade13Button, prismUpgrade14Button, 
                         trueFinalCubeUpgradeButton, autoProducersBoostButton, autoArchitectsBoostButton, autoEngineersBoostButton, autoVisionaryBoostButton,
-                        autoOmniBoostButton, autoPrimerBoostButton, autoOverchargerBoostButton, 
-
+                        autoOmniBoostButton, autoPrimerBoostButton, autoOverchargerBoostButton, prismUpgrade15Button,
+                        prismUpgrade16Button, prismUpgrade17Button, prismUpgrade18Button, prismUpgrade19Button,
+                        
                     }
                     .FirstOrDefault(btn => btn._isHovering)?.HoverText ?? "";
                 }
@@ -4035,7 +4391,9 @@ namespace Cubefinity
                         ritualAmountAch5Button, ritualAmountAch6Button, cubeAmountAch11Button, cubeAmountAch12Button,
                         cubeAmountAch13Button, cubeAmountAch14Button, cubeAmountAch15Button, cubeAmountAch16Button,
                         cubeAmountAch17Button, fluxuateAmountAch7Button, fluxuateAmountAch8Button, fluxuateAmountAch9Button,
-                        fluxuateAmountAch10Button, fluxuateAmountAch11Button, fluxuateAmountAch12Button, 
+                        fluxuateAmountAch10Button, fluxuateAmountAch11Button, fluxuateAmountAch12Button, ritualAmountAch7Button,
+                        fractalAmountAch1Button, fractalAmountAch2Button, fractalAmountAch3Button, fractalAmountAch4Button,
+                        fractalAmountAch5Button, 
                     }
                     .FirstOrDefault(btn => btn._isHovering)?.HoverText ?? "";
                 }
@@ -4045,7 +4403,8 @@ namespace Cubefinity
                     {
                         fractalUpgrade1Button, fractalUpgrade2Button, fractalUpgrade3Button, fractalUpgrade4Button, fractalUpgrade5Button,
                         fractalUpgrade6Button, fractalUpgrade7Button, fractalUpgrade8Button, fractalUpgrade9Button, fractalUpgrade10Button,
-                        fractalUpgrade11Button,
+                        fractalUpgrade11Button, fractalUpgrade12Button, fractalUpgrade13Button, fractalUpgrade14Button, fractalUpgrade15Button,
+
                     }
                     .FirstOrDefault(btn => btn._isHovering)?.HoverText ?? "";
                 }
@@ -4204,8 +4563,10 @@ namespace Cubefinity
         public static double _previousVisionaryMultiplier;
         public static double _previousEngineerMultiplier;
 
-        public static int _prevOverchargerLevel3;
-        public static int _prevPrimerLevel4;
+        public static double _prevOverchargerLevel3;
+        public static double _prevPrimerLevel4;
+        public static double _prevPrimerQuantity;
+        public static double _prevOverchargerQuantity;
         #endregion
         private void CubeUpgradeUpdate(GameTime gameTime)
         {
@@ -4220,27 +4581,36 @@ namespace Cubefinity
                 }        
                 if (prodFromPrimer.IsActive)
                 {
-                    cubeProducer.Quantity += primer.Quantity;
+                    double primerDiff = primer.Quantity - _prevPrimerQuantity;
+                    cubeProducer.Quantity += primerDiff;
+                    _prevPrimerQuantity = primer.Quantity;
                 }
                 if (archFromPrimer.IsActive)
                 {
-                    cubeArchitect.Quantity += primer.Quantity / 2;
+                    double primerDiff = primer.Quantity - _prevPrimerQuantity;
+                    cubeArchitect.Quantity += primerDiff / 2;
+                    _prevPrimerQuantity = primer.Quantity;
                 }
                 if (engiFromPrimer.IsActive)
                 {
-                    cubeEngineer.Quantity += primer.Quantity / 3;
+                    double primerDiff = primer.Quantity - _prevPrimerQuantity;
+                    cubeEngineer.Quantity += primerDiff / 3;
+                    _prevPrimerQuantity = primer.Quantity;
                 }
                 if (visFromOvercharger.IsActive)
                 {
-                    cubeVisionary.Quantity += overcharger.Quantity;
+                    double overchargerDiff = overcharger.Quantity - _prevOverchargerQuantity;
+                    cubeVisionary.Quantity += overchargerDiff;
+                    _prevOverchargerQuantity = overcharger.Quantity;
                 }
             } 
             if(cubeAmountAch8.IsUnlocked) // If Omnificent Unlocked
             {
                 if (omniFromOvercharger.IsActive)
                 {
-                    int overchargerLevelDiff = overcharger.Quantity / 2;
-                    cubeOmni.Quantity += overchargerLevelDiff;
+                    double overchargerDiff = overcharger.Quantity - _prevOverchargerQuantity;
+                    cubeOmni.Quantity += overchargerDiff / 2;
+                    _prevOverchargerQuantity = overcharger.Quantity;
                 }
                 if (allGen100ToOmniMult.IsActive) 
                 {
@@ -4320,8 +4690,8 @@ namespace Cubefinity
             }
             if (cube10GenToMulti.IsActive) // Every 5 Producers, Architects and Engineers, add 5% to all cube generators(Producer, Architect and Engineer)
             {
-                int minNumberOfUnits = Math.Min(cubeProducer.Quantity, Math.Min(cubeArchitect.Quantity, cubeEngineer.Quantity));
-                int setsOfTen = minNumberOfUnits / 5;
+                double minNumberOfUnits = Math.Min(cubeProducer.Quantity, Math.Min(cubeArchitect.Quantity, cubeEngineer.Quantity));
+                double setsOfTen = minNumberOfUnits / 5;
                 double newCrossFunctionalContribution = 1 + (0.05 * setsOfTen);
 
                 if (setsOfTen > 0 && _crossFunctionalContribution != newCrossFunctionalContribution)
@@ -4363,8 +4733,8 @@ namespace Cubefinity
 
             if (cube10GenToSale.IsActive) // Every 25 Producers, Architects, and Engineers, reduce the cost of all cube generators by 3%
             {
-                int minNumberOfUnits = Math.Min(cubeProducer.Quantity, Math.Min(cubeArchitect.Quantity, cubeEngineer.Quantity));
-                int setsOfTwentyFive = minNumberOfUnits / 25;
+                double minNumberOfUnits = Math.Min(cubeProducer.Quantity, Math.Min(cubeArchitect.Quantity, cubeEngineer.Quantity));
+                double setsOfTwentyFive = minNumberOfUnits / 25;
                 double newCrossFunctionalContribution = Math.Pow(0.97, setsOfTwentyFive);
 
                 if (setsOfTwentyFive > 0 && _crossFunctionalContribution2 != newCrossFunctionalContribution)
@@ -4384,8 +4754,8 @@ namespace Cubefinity
             }
             if (cube50ProdToProdMult.IsActive) // Every 50 producers, increase Engineers base multiplier by 25%
             {
-                int minNumberOfUnits = cubeProducer.Quantity;
-                int setsOfFifty = minNumberOfUnits / 50;
+                double minNumberOfUnits = cubeProducer.Quantity;
+                double setsOfFifty = minNumberOfUnits / 50;
                 double newCrossFunctionalContribution = 1 + (5 * setsOfFifty);
 
                 if (setsOfFifty > 0 && _crossFunctionalContribution3 != newCrossFunctionalContribution)
@@ -4474,20 +4844,20 @@ namespace Cubefinity
             else overcharger.BoostPower = 0.15;
             if (fluxUpgrade3.IsActive)
             {
-                int overchargerLevelDiff = (overcharger.Quantity / 5) - _prevOverchargerLevel3;
+                double overchargerLevelDiff = (overcharger.Quantity / 5) - _prevOverchargerLevel3;
                 if (overchargerLevelDiff != 0)
                 {
-                    int primersToAdd = overchargerLevelDiff;
+                    double primersToAdd = overchargerLevelDiff;
                     primer.Quantity += primersToAdd;
                     _prevOverchargerLevel3 += overchargerLevelDiff;
                 }
             }
             if (fluxUpgrade6.IsActive)
             {
-                int primerLevelDiff = (primer.Quantity / 10) - _prevPrimerLevel4;
+                double primerLevelDiff = (primer.Quantity / 10) - _prevPrimerLevel4;
                 if (primerLevelDiff != 0)
                 {
-                    int overchargersToAdd = primerLevelDiff;
+                    double overchargersToAdd = primerLevelDiff;
                     overcharger.Quantity += overchargersToAdd;
                     _prevPrimerLevel4 += primerLevelDiff;
                 }
@@ -4513,51 +4883,61 @@ namespace Cubefinity
         public static int _prevRitualAmount1;
         public static int _prevRitualAmount2;
         public static int _prevRitualAmount3;
+        public static int _prevRitualAmount4;
+        public static int _prevRitualAmount5;
         public static int howManyTimes = 1;
         public static int howManyTimes2 = 1;
+        public static int howManyTimes3 = 1;
         public static double _prismUpgrade11Contri = 1.0;
         private void PrismUpgradeUpdate(GameTime gameTime)
         {
             if (prismUpgrade1.IsActive)
             {
-                _prismUpgrade1Multi = resourceManager.GetPrism();
+                _prismUpgrade1Multi = (resourceManager.GetPrism() / 10);
             }
             else _prismUpgrade1Multi = 0;
 
-            if (prismUpgrade3.IsActive) 
-            {           
-                int levelDiff = resourceManager.GetRitualAmount() - _prevRitualAmount1;
-                if (levelDiff != 0)
-                {
-                    int toAdd = 25 * howManyTimes;
-                    howManyTimes += 1;
-                    primer.Quantity += toAdd;
-                    overcharger.Quantity += toAdd;
-                    _prevRitualAmount1 += levelDiff;                  
-                }                
+            if (prismUpgrade3.IsActive)
+            {
+                int toAdd = 25 * (resourceManager.GetRitualAmount() - _prevRitualAmount1);
+                primer.Quantity += toAdd;
+                overcharger.Quantity += toAdd;
+                _prevRitualAmount1 = resourceManager.GetRitualAmount();
             }
+
             if (prismUpgrade5.IsActive)
             {
-                int weaverDiff = resourceManager.GetRitualAmount() - _prevRitualAmount2;
-                if (weaverDiff != 0)
-                {
-                    int toAdd = 1 * howManyTimes2;
-                    howManyTimes2 += 1;
-                    fractalWeaver.Quantity += toAdd;
-                    _prevRitualAmount2 += weaverDiff;
-                }
+                int toAdd = (resourceManager.GetRitualAmount() - _prevRitualAmount2);
+                fractalWeaver.Quantity += toAdd;
+                _prevRitualAmount2 = resourceManager.GetRitualAmount();
             }
+
+            if (prismUpgrade18.IsActive)
+            {
+                int toAdd = (resourceManager.GetRitualAmount() - _prevRitualAmount4) / 2;
+                fractalForger.Quantity += toAdd;
+                _prevRitualAmount4 = resourceManager.GetRitualAmount();
+            }
+            if (prismUpgrade19.IsActive)
+            {
+                int toAdd = (resourceManager.GetRitualAmount() - _prevRitualAmount5) / 5;
+                fractalNexus.Quantity += toAdd;
+                _prevRitualAmount5 = resourceManager.GetRitualAmount();
+            }
+
             if (prismUpgrade8.IsActive)
             {
                 int rittieDiff = resourceManager.GetRitualAmount() - _prevRitualAmount3;
                 if (rittieDiff != 0)
                 {
-                    double toAdd = 0.98;
+                    double toAdd = Math.Pow(0.98, rittieDiff);
                     _baseForgerCostMulti *= toAdd;
                     fractalForger.CurrentCost *= toAdd;
-                    _prevRitualAmount3 += rittieDiff;
+                    _prevRitualAmount3 = resourceManager.GetRitualAmount();
                 }
             }
+
+
 
             if (prismUpgrade10.IsActive)
             {
@@ -4572,8 +4952,8 @@ namespace Cubefinity
             }
             if (prismUpgrade11.IsActive)
             {
-                int minNumberOfUnits = fractalWeaver.Quantity;
-                int setsOfFive = minNumberOfUnits / 5;
+                double minNumberOfUnits = fractalWeaver.Quantity;
+                double setsOfFive = minNumberOfUnits / 5;
                 double newCrossFunctionalContribution = 1 + (0.5 * setsOfFive);
 
                 if (setsOfFive > 0 && _prismUpgrade11Contri != newCrossFunctionalContribution)
@@ -4614,17 +4994,26 @@ namespace Cubefinity
             UpdateUpgradeButton(prismUpgrade12Button, prismUpgrade12, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch5.IsUnlocked);       
             UpdateUpgradeButton(prismUpgrade13Button, prismUpgrade13, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch5.IsUnlocked);       
             UpdateUpgradeButton(prismUpgrade14Button, prismUpgrade14, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch5.IsUnlocked);       
+            UpdateUpgradeButton(prismUpgrade15Button, prismUpgrade15, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch6.IsUnlocked);       
+            UpdateUpgradeButton(prismUpgrade16Button, prismUpgrade16, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch6.IsUnlocked);       
+            UpdateUpgradeButton(prismUpgrade17Button, prismUpgrade17, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch6.IsUnlocked);       
+            UpdateUpgradeButton(prismUpgrade18Button, prismUpgrade18, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch7.IsUnlocked);       
+            UpdateUpgradeButton(prismUpgrade19Button, prismUpgrade19, UpgradeTexture, PrismUpgradeIcon, 2, ritualAmountAch7.IsUnlocked);       
         }
 
-        public static int _prevFractCount;
-        public static int _prevFractCount2;
-        public static int _prevWeaverCount;
-        public static int _prevForgerCount;
-        public static int _prevNexusCount;
+        public static double _prevFractCount;
+        public static double _prevFractCount2;
+        public static double _prevWeaverCount;
+        public static double _prevForgerCount;
+        public static double _prevNexusCount;
         public static double _fractalFluxuateMulti = 1.0;
         public static double _fractalRitualMulti = 1.0;
-        public static int _prevFluxuateCount;
+        public static int _prevFluxuateCount;    
         public static int _prevFluxuateCount2;
+        public static int _prevRitualCount1;
+        public static int _prevRitualCount2;
+        public static int _prevRitualCount3;
+        public static int _prevRitualCount4;
         public static bool fluxuateFromRitual;
         private void FractalUpgradeUpdate(GameTime gameTime)
         {
@@ -4636,15 +5025,15 @@ namespace Cubefinity
 
             if (fractalUpgrade2.IsActive)
             {
-                int fractCountDiff = (int)resourceManager.GetFractals() - _prevFractCount;
+                double fractCountDiff = (int)resourceManager.GetFractals() - _prevFractCount;
                 if (fractCountDiff != 0)
                 {
-                    double costDecreaseBase = 0.995;
+                    double costDecreaseBase = 0.9975;
                     double costDecreaseFactor;
 
                     for (int i = 0; i < fractCountDiff; i++)
                     {
-                        costDecreaseFactor = Math.Min(costDecreaseBase + (0.000025 * Math.Log(1 + _prevFractCount)), 0.99999999);
+                        costDecreaseFactor = Math.Min(costDecreaseBase + (0.000025 * Math.Log(1 + _prevFractCount)), 0.9999);
                         _baseProducerCostMulti *= costDecreaseFactor;
                         cubeProducer.CurrentCost *= costDecreaseFactor;
 
@@ -4663,7 +5052,7 @@ namespace Cubefinity
             
             if (fractalUpgrade3.IsActive)
             {
-                int fractCountDiff = (int)resourceManager.GetFractals() - _prevFractCount2;
+                double fractCountDiff = resourceManager.GetFractals() - _prevFractCount2;
                 if (fractCountDiff != 0)
                 {
                     double costDecreaseBase = 0.9975;
@@ -4671,7 +5060,7 @@ namespace Cubefinity
 
                     for (int i = 0; i < fractCountDiff; i++)
                     {
-                        costDecreaseFactor = Math.Min(costDecreaseBase + (0.000025 * Math.Log(1 + _prevFractCount2)), 0.99999999999);
+                        costDecreaseFactor = Math.Min(costDecreaseBase + (0.000025 * Math.Log(1 + _prevFractCount2)), 0.999999);
                         _baseVisionaryCostMulti *= costDecreaseFactor;
                         cubeVisionary.CurrentCost *= costDecreaseFactor;
 
@@ -4686,10 +5075,10 @@ namespace Cubefinity
             
             if (fractalUpgrade4.IsActive)
             {
-                int weaverDiff = fractalWeaver.Quantity - _prevWeaverCount;
+                double weaverDiff = fractalWeaver.Quantity - _prevWeaverCount;
                 if (weaverDiff != 0)
                 {
-                    int toAdd = weaverDiff;
+                    double toAdd = weaverDiff;
                     cubeProducer.Quantity += toAdd;
                     cubeArchitect.Quantity += toAdd;
                     cubeEngineer.Quantity += toAdd;
@@ -4700,10 +5089,10 @@ namespace Cubefinity
             
             if (fractalUpgrade5.IsActive)
             {
-                int forgerDiff = fractalForger.Quantity - _prevForgerCount;
+                double forgerDiff = fractalForger.Quantity - _prevForgerCount;
                 if (forgerDiff != 0)
                 {
-                    int toAdd = forgerDiff; 
+                    double toAdd = forgerDiff; 
                     cubeVisionary.Quantity += toAdd;
                     cubeOmni.Quantity += toAdd;
 
@@ -4713,7 +5102,7 @@ namespace Cubefinity
            
             if (fractalUpgrade6.IsActive)
             {
-                int nexusDiff = fractalNexus.Quantity - _prevNexusCount;
+                double nexusDiff = fractalNexus.Quantity - _prevNexusCount;
                 if (nexusDiff != 0)
                 {
                     double toAdd = 0.5 * nexusDiff;
@@ -4753,6 +5142,55 @@ namespace Cubefinity
                     _prevFluxuateCount += fluxuationDiff;
                 }
             }
+            
+            if (fractalUpgrade12.IsActive)
+            {
+                int ritualDiff = resourceManager.GetRitualAmount() - _prevRitualCount1;
+                if (ritualDiff != 0)
+                {
+                    int toAdd = 100 * ritualDiff;
+                    cubeProducer.Quantity += toAdd;
+
+                    _prevRitualCount1 += ritualDiff;
+                }
+            }
+
+            if (fractalUpgrade13.IsActive)
+            {
+                int ritualDiff = resourceManager.GetRitualAmount() - _prevRitualCount2;
+                if (ritualDiff != 0)
+                {
+                    int toAdd = 75 * ritualDiff;
+                    cubeArchitect.Quantity += toAdd;
+
+                    _prevRitualCount2 += ritualDiff;
+                }
+            }
+
+            if (fractalUpgrade14.IsActive)
+            {
+                int ritualDiff = resourceManager.GetRitualAmount() - _prevRitualCount3;
+                if (ritualDiff != 0)
+                {
+                    int toAdd = 50 * ritualDiff;
+                    cubeEngineer.Quantity += toAdd;
+
+                    _prevRitualCount3 += ritualDiff;
+                }
+            }
+
+            if (fractalUpgrade15.IsActive)
+            {
+                int ritualDiff = resourceManager.GetRitualAmount() - _prevRitualCount4;
+                if (ritualDiff != 0)
+                {
+                    int toAdd = 10 * ritualDiff;
+                    cubeVisionary.Quantity += toAdd;
+                    cubeOmni.Quantity += toAdd;
+
+                    _prevRitualCount4 += ritualDiff;
+                }
+            }
 
             if (fractalUpgrade10.IsActive)
             {
@@ -4766,7 +5204,7 @@ namespace Cubefinity
                 }
             }
 
-            if (fractalUpgrade10.IsActive)
+            if (fractalUpgrade11.IsActive)
             {
                 fluxuateFromRitual = true;
             }
@@ -4785,6 +5223,10 @@ namespace Cubefinity
             UpdateFractalUpgradeButton(fractalUpgrade9Button, fractalUpgrade9, UpgradeTexture, FractalUpgradeRecycleIcon, 3, true);             
             UpdateFractalUpgradeButton(fractalUpgrade10Button, fractalUpgrade10, UpgradeTexture, FractalUpgradeRecycleIcon, 3, true);             
             UpdateFractalUpgradeButton(fractalUpgrade11Button, fractalUpgrade11, UpgradeTexture, FractalUpgradeIcon, 3, true);             
+            UpdateFractalUpgradeButton(fractalUpgrade12Button, fractalUpgrade12, UpgradeTexture, FractalUpgradeRecycleIcon, 3, fractalAmountAch5.IsUnlocked);             
+            UpdateFractalUpgradeButton(fractalUpgrade13Button, fractalUpgrade13, UpgradeTexture, FractalUpgradeRecycleIcon, 3, fractalAmountAch5.IsUnlocked);             
+            UpdateFractalUpgradeButton(fractalUpgrade14Button, fractalUpgrade14, UpgradeTexture, FractalUpgradeRecycleIcon, 3, fractalAmountAch5.IsUnlocked);             
+            UpdateFractalUpgradeButton(fractalUpgrade15Button, fractalUpgrade15, UpgradeTexture, FractalUpgradeRecycleIcon, 3, fractalAmountAch5.IsUnlocked);             
         }
         
         private void FractalWeaverUpdate(GameTime gameTime)
@@ -5416,7 +5858,7 @@ namespace Cubefinity
                 expoNumeration = new BigNumber(cubeProducer.FullCPS());
                 string cubeProducerCPS = $"[Cubes/Sec: {expoNumeration.ToString()}]";
                 spriteBatch.DrawString(MainGame.infoFont, cubeProducerCPS, new Vector2((cubeProducerPos.X + 136 - MainGame.font.MeasureString(cubeProducerCPS).X / 2), cubeProducerPos.Y + 66 - MainGame.font.MeasureString(cubeProducerCPS).Y / 2), new Color(136, 194, 252), 0, default, 0.5f, SpriteEffects.None, 0);
-                expoNumeration = new BigNumber(cubeProducer.CubeMultiplier) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower()) + new BigNumber(_prismUpgrade1Multi);
+                expoNumeration = new BigNumber(cubeProducer.CubeMultiplier * (1 + _prismUpgrade1Multi)) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower());
                 string cubeProducerMulti = $"[Multiplier: {expoNumeration.ToString()}]";
                 spriteBatch.DrawString(MainGame.infoFont, cubeProducerMulti, new Vector2((cubeProducerPos.X + 160 - MainGame.font.MeasureString(cubeProducerMulti).X / 2), cubeProducerPos.Y + 102 - MainGame.font.MeasureString(cubeProducerMulti).Y / 2), new Color(136, 194, 252), 0, default, 0.4f, SpriteEffects.None, 0);
                 expoNumeration = new BigNumber(cubeProducer.Quantity);
@@ -5434,7 +5876,7 @@ namespace Cubefinity
                 expoNumeration = new BigNumber(cubeArchitect.FullCPS());
                 string cubeArchitectCPS = $"[Cubes/Sec: {expoNumeration.ToString()}]";
                 spriteBatch.DrawString(MainGame.infoFont, cubeArchitectCPS, new Vector2((cubeProducerPos.X + 526 - MainGame.font.MeasureString(cubeArchitectCPS).X / 2), cubeProducerPos.Y + 66 - MainGame.font.MeasureString(cubeArchitectCPS).Y / 2), new Color(136, 194, 252), 0, default, 0.5f, SpriteEffects.None, 0);
-                expoNumeration = new BigNumber(cubeArchitect.CubeMultiplier) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower()) + new BigNumber(_prismUpgrade1Multi);
+                expoNumeration = new BigNumber(cubeArchitect.CubeMultiplier * (1 + _prismUpgrade1Multi)) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower());
                 string cubeArchitectMulti = $"[Multiplier: {expoNumeration.ToString()}]";
                 spriteBatch.DrawString(MainGame.infoFont, cubeArchitectMulti, new Vector2((cubeProducerPos.X + 550 - MainGame.font.MeasureString(cubeArchitectMulti).X / 2), cubeProducerPos.Y + 102 - MainGame.font.MeasureString(cubeArchitectMulti).Y / 2), new Color(136, 194, 252), 0, default, 0.4f, SpriteEffects.None, 0);
                 expoNumeration = new BigNumber(cubeArchitect.Quantity);
@@ -5452,7 +5894,7 @@ namespace Cubefinity
                 expoNumeration = new BigNumber(cubeEngineer.FullCPS());
                 string cubeEngineerCPS = $"[Cubes/Sec: {expoNumeration.ToString()}]";
                 spriteBatch.DrawString(MainGame.infoFont, cubeEngineerCPS, new Vector2((cubeProducerPos.X + 916 - MainGame.font.MeasureString(cubeEngineerCPS).X / 2), cubeProducerPos.Y + 66 - MainGame.font.MeasureString(cubeEngineerCPS).Y / 2), new Color(136, 194, 252), 0, default, 0.5f, SpriteEffects.None, 0);
-                expoNumeration = new BigNumber(cubeEngineer.CubeMultiplier) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower()) + new BigNumber(_prismUpgrade1Multi);
+                expoNumeration = new BigNumber(cubeEngineer.CubeMultiplier * (1 + _prismUpgrade1Multi)) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower());
                 string cubeEngineerMulti = $"[Multiplier: {expoNumeration.ToString()}]";
                 spriteBatch.DrawString(MainGame.infoFont, cubeEngineerMulti, new Vector2((cubeProducerPos.X + 940 - MainGame.font.MeasureString(cubeEngineerMulti).X / 2), cubeProducerPos.Y + 102 - MainGame.font.MeasureString(cubeEngineerMulti).Y / 2), new Color(136, 194, 252), 0, default, 0.4f, SpriteEffects.None, 0);
                 expoNumeration = new BigNumber(cubeEngineer.Quantity);
@@ -5472,7 +5914,7 @@ namespace Cubefinity
                     expoNumeration = new BigNumber(cubeVisionary.FullCPS());
                     string cubeVisionaryCPS = $"[Cubes/Sec: {expoNumeration.ToString()}]";
                     spriteBatch.DrawString(MainGame.infoFont, cubeVisionaryCPS, new Vector2((cubeProducerPos.X - 190 + 520 - MainGame.font.MeasureString(cubeVisionaryCPS).X / 2), cubeProducerPos.Y + 300 + 66 - MainGame.font.MeasureString(cubeVisionaryCPS).Y / 2), new Color(136, 194, 252), 0, default, 0.5f, SpriteEffects.None, 0);
-                    expoNumeration = new BigNumber(cubeVisionary.CubeMultiplier) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower()) + new BigNumber(_prismUpgrade1Multi);
+                    expoNumeration = new BigNumber(cubeVisionary.CubeMultiplier * (1 + _prismUpgrade1Multi)) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower());
                     string cubeVisionaryMulti = $"[Multiplier: {expoNumeration.ToString()}]";
                     spriteBatch.DrawString(MainGame.infoFont, cubeVisionaryMulti, new Vector2((cubeProducerPos.X - 190 + 544 - MainGame.font.MeasureString(cubeVisionaryMulti).X / 2), cubeProducerPos.Y + 300 + 102 - MainGame.font.MeasureString(cubeVisionaryMulti).Y / 2), new Color(136, 194, 252), 0, default, 0.4f, SpriteEffects.None, 0);
                     expoNumeration = new BigNumber(cubeVisionary.Quantity);
@@ -5493,7 +5935,7 @@ namespace Cubefinity
                     expoNumeration = new BigNumber(cubeOmni.FullCPS());
                     string cubeOmniCPS = $"[Cubes/Sec: {expoNumeration.ToString()}]";
                     spriteBatch.DrawString(MainGame.infoFont, cubeOmniCPS, new Vector2((cubeProducerPos.X - 190 + 910 - MainGame.font.MeasureString(cubeOmniCPS).X / 2), cubeProducerPos.Y + 300 + 66 - MainGame.font.MeasureString(cubeOmniCPS).Y / 2), new Color(136, 194, 252), 0, default, 0.5f, SpriteEffects.None, 0);
-                    expoNumeration = new BigNumber(cubeOmni.CubeMultiplier) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower()) + new BigNumber(_prismUpgrade1Multi);
+                    expoNumeration = new BigNumber(cubeOmni.CubeMultiplier * (1 + _prismUpgrade1Multi)) * new BigNumber(primer.FullBoostPower() * overcharger.FullBoostPower());
                     string cubeOmniMulti = $"[Multiplier: {expoNumeration.ToString()}]";
                     spriteBatch.DrawString(MainGame.infoFont, cubeOmniMulti, new Vector2((cubeProducerPos.X - 190 + 910 + 24 - MainGame.font.MeasureString(cubeOmniMulti).X / 2), cubeProducerPos.Y + 300 + 102 - MainGame.font.MeasureString(cubeOmniMulti).Y / 2), new Color(136, 194, 252), 0, default, 0.4f, SpriteEffects.None, 0);
                     expoNumeration = new BigNumber(cubeOmni.Quantity);
@@ -5514,7 +5956,7 @@ namespace Cubefinity
                     string primerDesc = $"[All Cube generation 0.25x/Level]";
                     if(fluxUpgrade1.IsActive)
                     {
-                        primerDesc = $"[All Cube generation 0.3x/Level]";
+                        primerDesc = $"[All Cube generation 0.45x/Level]";
                     }
                     else primerDesc = $"[All Cube generation 0.25x/Level]";
                     spriteBatch.DrawString(MainGame.infoFont, primerDesc, new Vector2((cubeProducerPos.X + 145 - MainGame.font.MeasureString(primerDesc).X / 2), cubeProducerPos.Y + 662 - MainGame.font.MeasureString(primerDesc).Y / 2), new Color(136, 252, 252), 0, default, 0.5f, SpriteEffects.None, 0);
@@ -5536,12 +5978,12 @@ namespace Cubefinity
                 {
                     //OVERCHARGER
                     spriteBatch.Draw(Content.Load<Texture2D>("UI/OverchargerTexture"), new Vector2(cubeProducerPos.X + 780 + 130 - Content.Load<Texture2D>("UI/OverchargerTexture").Width / 2, cubeProducerPos.Y + 600 - 72 - Content.Load<Texture2D>("UI/OverchargerTexture").Height / 2), Color.White);
-                    string overchargerDesc = $"[Primer multiplier 0.1x/Level]";
+                    string overchargerDesc = $"[Primer multiplier 0.15x/Level]";
                     if (fluxUpgrade2.IsActive)
                     {
-                        overchargerDesc = $"[Primer multiplier boost 0.15x/Level]";
+                        overchargerDesc = $"[Primer multiplier boost 0.25x/Level]";
                     }
-                    else overchargerDesc = $"[Primer multiplier boost 0.1x/Level]";
+                    else overchargerDesc = $"[Primer multiplier boost 0.15x/Level]";
                     spriteBatch.DrawString(MainGame.infoFont, overchargerDesc, new Vector2((cubeProducerPos.X + 780 + 142 - MainGame.font.MeasureString(overchargerDesc).X / 2), cubeProducerPos.Y + 662 - MainGame.font.MeasureString(overchargerDesc).Y / 2), new Color(136, 252, 252), 0, default, 0.5f, SpriteEffects.None, 0);
 
                     expoNumeration = new BigNumber(overcharger.FullBoostPower());
@@ -5725,5 +6167,7 @@ namespace Cubefinity
         {
             _achievementPopup.Show(achievementText, achievementReqs, GraphicsDevice);
         }
+
+        
     }
 }

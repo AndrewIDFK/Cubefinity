@@ -339,10 +339,6 @@ namespace Cubefinity
             MainGame._prevNexusCount = 0;
             MainGame._prevFluxuateCount = 0;
             MainGame._prevFluxuateCount2 = 0;
-
-            
-
-
         }
         public void ResetResources2() // RITUAL
         {

@@ -14,7 +14,7 @@ namespace Cubefinity
         public double CurrentCost { get; set; }
         public double CostIncrease { get; set; }
         public double FractalsPerSecond { get; set; }
-        public int Quantity { get; set; }
+        public double Quantity { get; set; }
         public double FractalMultiplier { get; set; }
 
         public FractalGenerator() { }

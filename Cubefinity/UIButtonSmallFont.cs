@@ -82,7 +82,7 @@ namespace Cubefinity
             else BackgroundColor = extraButtonColor;
 
             spriteBatch.Draw(ButtonTexture, new Rectangle((int)ScreenPos.X + Bounds.X, (int)ScreenPos.Y, Bounds.Width, Bounds.Height), BackgroundColor);
-            spriteBatch.DrawString(MainGame.font, Text, new Vector2((ScreenPos.X + (Bounds.X + 7 + Bounds.Width / 2 - MainGame.font.MeasureString(Text).X / 2) * 1.05f), ScreenPos.Y + (Bounds.Height / 2 - MainGame.font.MeasureString(Text).Y / 2) * 1.05f), TextColor, 0f, Vector2.Zero, 0.95f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(MainGame.font, Text, new Vector2((ScreenPos.X + (Bounds.X + 14 + Bounds.Width / 2 - MainGame.font.MeasureString(Text).X / 2) * 1.1f), ScreenPos.Y + (Bounds.Height / 2 - MainGame.font.MeasureString(Text).Y / 2) * 1.1f), TextColor, 0f, Vector2.Zero, 0.9f, SpriteEffects.None, 0f);
         }
     }
 }

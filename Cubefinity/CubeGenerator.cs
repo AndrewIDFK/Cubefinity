@@ -14,7 +14,7 @@ namespace Cubefinity
         public double CurrentCost { get; set; }
         public double CostIncrease { get; set; }
         public double CubesPerSecond { get; set; }
-        public int Quantity { get; set; }
+        public double Quantity { get; set; }
         public static int BuyAmount;
         public double CubeMultiplier { get; set; }
 
@@ -50,7 +50,8 @@ namespace Cubefinity
         
         public double FullCPS()
         {
-             return ((Quantity * CubesPerSecond) * (CubeMultiplier + MainGame._prismUpgrade1Multi)) * (MainGame.primer.FullBoostPower() * MainGame.overcharger.FullBoostPower());
+            if(((Quantity * CubesPerSecond) * (CubeMultiplier * (1 + MainGame._prismUpgrade1Multi))) * (MainGame.primer.FullBoostPower() * MainGame.overcharger.FullBoostPower()) >= 1e300) return 1e300;
+            return ((Quantity * CubesPerSecond) * (CubeMultiplier * (1 + MainGame._prismUpgrade1Multi))) * (MainGame.primer.FullBoostPower() * MainGame.overcharger.FullBoostPower());
         }
 
         public void Buy(int buyAmount)

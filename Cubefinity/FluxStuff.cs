@@ -14,7 +14,7 @@ namespace Cubefinity
         public double BaseCost { get; set; }
         public double CurrentCost { get; set; }
         public double CostIncrease { get; set; }
-        public int Quantity { get; set; }
+        public double Quantity { get; set; }
         public double BoostPower { get; set; }
 
         public FluxStuff() { } // Add this parameterless constructor for deserialization
@@ -50,7 +50,8 @@ namespace Cubefinity
 
         public double FullBoostPower()
         {
-            return (Quantity * BoostPower) + 1;
+            if(((Quantity * BoostPower) + 1) >= 1e300) return 1e300;
+            else return (Quantity * BoostPower) + 1;
         }
 
         public void Buy(int buyAmount)
