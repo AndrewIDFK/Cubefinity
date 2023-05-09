@@ -52,15 +52,18 @@ namespace Cubefinity
         public double PreviousArchitectMultiplier { get; set; }
         public double PreviousVisionaryMultiplier { get; set; }
         public double PreviousEngineerMultiplier { get; set; }
-        public int PrevOverchargerLevel3 { get; set; }
-        public int PrevPrimerLevel4 { get; set; }
+        public double PrevOverchargerLevel3 { get; set; }
+        public double PrevPrimerLevel4 { get; set; }
 
         public double PrismUpgrade1Multi { get; set; }
         public int PrevRitualAmount1 { get; set; }
         public int PrevRitualAmount2 { get; set; }
         public int PrevRitualAmount3 { get; set; }
+        public int PrevRitualAmount4 { get; set; }
+        public int PrevRitualAmount5 { get; set; }
         public int HowManyTimes { get; set; }
         public int HowManyTimes2 { get; set; }
+        public int HowManyTimes3 { get; set; }
 
         public double BaseProducerMultiplier { get; set; }
         public double BaseProducerCostMulti { get; set; }
@@ -85,17 +88,23 @@ namespace Cubefinity
         public double BaseNexusCostMulti { get; set; }
         public double FractalFluxuateMulti { get; set; }
         public double FractalRitualMulti { get; set; }
-        public int PrevFractCount { get; set; }
-        public int PrevFractCount2 { get; set; }
-        public int PrevWeaverCount { get; set; }
-        public int PrevForgerCount { get; set; }
-        public int PrevNexusCount { get; set; }
+        public double PrevFractCount { get; set; }
+        public double PrevFractCount2 { get; set; }
+        public double PrevWeaverCount { get; set; }
+        public double PrevForgerCount { get; set; }
+        public double PrevNexusCount { get; set; }
         public int PrevFluxuateCount { get; set; }
         public int PrevFluxuateCount2 { get; set; }
         public bool FluxuateFromRitual { get; set; }
         public double PreviousWeaverMultiplier { get; set; }
         public double PrismUpgrade11Contri { get; set; }
         public double PreviousForgerMultiplier { get; set; }
+        public int PrevRitualCount1 { get; set; }
+        public int PrevRitualCount2 { get; set; }
+        public int PrevRitualCount3 { get; set; }
+        public int PrevRitualCount4 { get; set; }
+        public double PrevPrimerQuantity { get; set; }
+        public double PrevOverchargerQuantity { get; set; }
         public GameState()
         {
             Cubes = 0.1;
@@ -138,8 +147,11 @@ namespace Cubefinity
             PrevRitualAmount1 = MainGame._prevRitualAmount1;
             PrevRitualAmount2 = MainGame._prevRitualAmount2;
             PrevRitualAmount3 = MainGame._prevRitualAmount3;
+            PrevRitualAmount4 = MainGame._prevRitualAmount4;
+            PrevRitualAmount5 = MainGame._prevRitualAmount5;
             HowManyTimes = MainGame.howManyTimes;
             HowManyTimes2 = MainGame.howManyTimes2;
+            HowManyTimes3 = MainGame.howManyTimes3;
 
             BaseProducerMultiplier = MainGame._baseProducerMultiplier;
             BaseProducerCostMulti = MainGame._baseProducerCostMulti;
@@ -178,6 +190,14 @@ namespace Cubefinity
             PreviousWeaverMultiplier = MainGame._previousWeaverMultiplier;
             PrismUpgrade11Contri = MainGame._prismUpgrade11Contri;
             PreviousForgerMultiplier = MainGame._previousForgerMultiplier;
+
+            PrevRitualCount1 = MainGame._prevRitualCount1;
+            PrevRitualCount2 = MainGame._prevRitualCount2;
+            PrevRitualCount3 = MainGame._prevRitualCount3;
+            PrevRitualCount4 = MainGame._prevRitualCount4;
+
+            PrevPrimerQuantity = MainGame._prevPrimerQuantity;
+            PrevOverchargerQuantity = MainGame._prevOverchargerQuantity;
 
             Version = 2; 
         }
@@ -359,7 +379,7 @@ namespace Cubefinity
                     using (StreamReader sr = new StreamReader(cryptoStream))
                     {
                         string json = sr.ReadToEnd();
-                        Console.WriteLine($"JSON: {json}"); // Print JSON string for debugging
+                        Console.WriteLine($"JSON: {json}"); // Print JSON string for debugging, gives full list of everything before encryption
                         GameState gameData = JsonSerializer.Deserialize<GameState>(json);
                         gameData.Migrate(); // Call the Migrate method
                         return gameData;
@@ -372,6 +392,5 @@ namespace Cubefinity
                 return new GameState(); // Return a default game state if loading fails
             }
         }
-
     }
 }
